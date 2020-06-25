@@ -1,0 +1,44 @@
+.padding-left-40{
+	padding-left: 40px;
+}
+
+@media screen and (max-width: 640px) {
+  .mybtn{
+  	width: 100%;
+  }
+
+  
+
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+.btn-link {
+      background: none!important;
+      border: none;
+      padding: 0!important;
+      /*optional*/
+      font-family: arial, sans-serif;
+      /*input has OS specific font-family*/
+      color: #069;
+      text-decoration: underline;
+      cursor: pointer;
+      text-decoration: none;
+   }
+
+   .padding-left-40{
+     padding-left: 0px;
+   }
+
+
+ 
+
+}
+
+.test-border{
+  border:1px solid red;
+}
+
+
