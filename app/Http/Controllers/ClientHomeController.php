@@ -27,6 +27,10 @@ class ClientHomeController extends Controller
         
     }
 
+    public function showClientSearch(){
+        return view('client/home');
+    }
+
 
     public function searchdata($data){
 

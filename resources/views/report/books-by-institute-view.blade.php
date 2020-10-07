@@ -20,7 +20,7 @@
 
 	<div class="container mt-5">
 		<div class="row">
-			<h3>Most Viewed Book(s)</h3>
+			<h3>List of Books of {{$instituteCode}}</h3>
 			<table class="table">
 		    	<th>Thesis Title</th>
 		    	<th>Thesis Description</th>
@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="row">
-			<a href="/admin/report/" class="btn btn-outline-primary">BACK</a>
+			<a href="/admin/report/books-by-institute" class="btn btn-outline-primary">BACK</a>
 		</div>
 	</div>
     

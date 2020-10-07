@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Upload Thesis') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/theses" enctype="multipart/form-data">
+                    <form method="POST" action="/admin/theses" enctype="multipart/form-data">
                         @csrf
 
 

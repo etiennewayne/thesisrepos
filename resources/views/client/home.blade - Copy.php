@@ -1,11 +1,24 @@
-@extends('layouts.clientlayout')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    @section('head-extrascript')
+  <title>Home</title>
 
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
 
-      function getMessage() {
+    <script type="text/javascript" src="{{asset('/js/jquery-3.3.1.js')}}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.css') }}">
+    <script type="text/javascript" src="{{asset('/js/jquery-ui.min.js')}}"></script>
+
+
+    <script>
+
+         function getMessage() {
 
           var key = $('#txtsearch').val();
           if (key.length < 1){
@@ -94,14 +107,26 @@
 
 
         });
-        
-        </script>
 
-    @endsection
 
-       
-    @section('content')  
+    </script>
 
+
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">TBook</a>
+
+   {{--  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> --}}
+    <a class="btn btn-outline-success my-2 my-sm-0"
+    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
+</nav>
 
 
 <div class="container">
@@ -140,6 +165,5 @@
 
    <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
 
-@endsection
-
-
+</body>
+</html>

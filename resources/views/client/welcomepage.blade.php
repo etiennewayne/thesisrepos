@@ -1,38 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+@extends('layouts.clientlayout')
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-        <title>Welcome Thesis Repository</title>
-
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-
-        <script type="text/javascript" src="{{asset('/js/jquery-3.3.1.js')}}"></script>
-
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.css') }}">
-        <script type="text/javascript" src="{{asset('/js/jquery-ui.min.js')}}"></script>
-
-    </head>
-
-    <body>
-
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand">TBook</a>
-          
-             {{--  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> --}}
-              <a class="btn btn-outline-success my-2 my-sm-0"
-              onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">Logout</a>
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                  @csrf
-                              </form>
-          
-        </nav>
-
-
+@section('content')
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -81,7 +49,4 @@
         </div>
 
 
-        <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
-
-    </body>
-</html>
+    @endsection

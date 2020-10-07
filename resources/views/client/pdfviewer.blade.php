@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>VIEW PDF</title>
-  <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-  
-  <script src="/js/pdf.js"></script>
+@extends('layouts.clientlayout')
 
-  <script>
-    console.log(window.location.href);
-  </script>
-  <style>
+
+@section('head-extrascript')
+  <script src="/js/pdf.js"></script>
+@endsection
+
+@section('content')
+    <style>
 
     #the-canvas {
         border: 1px solid black;
@@ -21,10 +15,6 @@
 
    
   </style>
-
-
-</head>
-<body>
 
   <div class="container">
     
@@ -42,7 +32,7 @@
         
             <button id="zoomin" class="btn btn-info btn-sm mb-2">Zoom In</button>
             <button id="zoomout" class="btn btn-info btn-sm mb-2">Zoom Out</button>
-            <button id="zoomout" class="btn btn-success btn-sm mb-2" onclick="window.location = '/client/home'">BACK HOME</button>
+            <button id="zoomout" class="btn btn-success btn-sm mb-2" onclick="window.location = '/client/search'">BACK</button>
           <div>
             <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
           </div>
@@ -55,11 +45,11 @@
 
   </div>
   
-</body>
-</html>
+
+@endsection
 
 
-
+@section('bottom-extrascript')
 
 <script>
     // If absolute URL from the remote server is provided, configure the CORS
@@ -188,3 +178,5 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 });
 
 </script>
+
+@endsection

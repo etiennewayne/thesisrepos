@@ -94,7 +94,7 @@
         var table = $('#program').DataTable({
             processing: true,
             ajax: {
-                url: '/programs/ajax/programs',
+                url: '/admin/programs/ajax/programs',
                 dataSrc: ''
             },
             columns: [

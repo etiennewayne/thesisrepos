@@ -31,6 +31,7 @@ class ThesisController extends Controller
 
 
     public function create(){
+        
         $categories = Category::all();
         $programs = Program::all();
 
@@ -69,14 +70,15 @@ class ThesisController extends Controller
             'thesisdesc' => strtoupper($request->thesisdesc),
             'author' => strtoupper($request->author),
             'abstractfile' => $abstract_name,
-            // 'thesisfile' => $thesis_name,
+            //'thesisfile' => $thesis_name,
             'tagWords' => strtoupper($request->tagwords),
-            'categoryID' => $request->categoryid,
             'programID' => $request->programid,
+            'categoryID' => $request->categoryid,
+            
            // 'abstractfile' => $request->abstractfile
         ]);
 
-        return redirect('/theses')->with('success', 'Thesis successfully uploaded and saved.');
+        return redirect('/admin/theses')->with('success', 'Thesis successfully uploaded and saved.');
         //return $request->file('abstractfile');
     }
 
@@ -93,7 +95,7 @@ class ThesisController extends Controller
         $data->tagWords = $req->tagwords;
         $data->programID = $req->programid;
         $data->save();
-        return redirect('/theses')->with('updated','Successfully updated.');
+        return redirect('/admin/theses')->with('updated','Successfully updated.');
     }
 
      public function edit($id){
@@ -124,10 +126,11 @@ class ThesisController extends Controller
        // File::delete(public_path('thesisfile'), $data->thesisfile);
 
         Thesisfile::destroy($id);
+        return 'success';
         //return redirect('/theses')->with('deleted', 'Successfully deleted.');
 
         //return public_path('abstractfile') .'/'. $data->abstractfile;
-        return redirect('/theses')->with('deleted', 'Successfully deleted.');
+        //return redirect('/theses')->with('deleted', 'Successfully deleted.');
     }
 
 
@@ -148,5 +151,28 @@ class ThesisController extends Controller
         ->get();
         return $data;
     }
+
+
+    public function ReportTheses(){
+        $data = \DB::table('thesisfiles as a')
+        ->join('categories as b', 'a.categoryID','b.categoryID')
+        ->join('programs as c', 'a.programID','c.programID')
+        //->where('a.access_code', $acode)
+        ->select('a.thesisfileID','a.thesistitle',
+            'a.thesisdesc',
+            'a.author',
+            'b.categoryID',
+            'b.category',
+            'c.programID',
+            'c.programCode',
+            'c.programDesc'
+        )
+        ->get();
+        return view('report.list-of-books')
+        ->with('data', $data);
+    }
+
+
+
 
 }

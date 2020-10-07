@@ -45,13 +45,13 @@
 
 
 
-    <a href="/report/list-of-books">List of Books</a>
+    <a href="/admin/report/list-of-books">List of Books</a>
     <br>
 
-    <a href="/report/books-by-institute">Books By Institute</a>
+    <a href="/admin/report/books-by-institute">Books By Institute</a>
     <br>
 
-    <a href="/report/most-viewed">Most Viewed</a>
+    <a href="/admin/report/most-viewed">Most Viewed</a>
       
 
 

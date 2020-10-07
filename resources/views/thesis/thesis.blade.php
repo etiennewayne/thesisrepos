@@ -101,7 +101,7 @@
 
 
         <div>
-            <a href="/theses/create" class="btn btn-primary">Upload Thesis</a>
+            <a href="/admin/theses/create" class="btn btn-primary">Upload Thesis</a>
         </div>
 
 
@@ -117,7 +117,7 @@
         var table = $('#theses').DataTable({
             processing: true,
             ajax: {
-                url: '/theses/ajax/theses',
+                url: '/admin/theses/ajax/theses',
                 dataSrc: ''
             },
             columns: [
@@ -140,7 +140,7 @@
             var data = table.row( $(this).parents('tr') ).data();
             
             var id = data['thesisfileID'];
-            window.location = '/theses/'+id+'/edit' ;
+            window.location = '/admin/theses/'+id+'/edit' ;
             
         });//criteria click edit
 
@@ -168,7 +168,7 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/theses/'+ id,
+                        $.post('/admin/theses/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'

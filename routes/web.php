@@ -12,45 +12,50 @@
 */
 
 Route::get('/', function () {
-    return view('/auth/login');
+    return redirect('/login');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-//theses Controller
-Route::resource('/theses', 'ThesisController');
-Route::get('/theses/ajax/theses', 'ThesisController@theses');
-
-//categories
-Route::resource('/categories', 'CategoryController');
-Route::get('/categories/ajax/categories', 'CategoryController@categories');
-
-//programs
-Route::resource('/programs', 'ProgramController');
-Route::get('/programs/ajax/programs', 'ProgramController@programs');
+Route::get('/admin/home', 'HomeController@index')->name('home');
 
 
 //institute
-Route::resource('/institutes', 'InstituteController');
-Route::get('/theses/ajax/institutes', 'InstituteController@institutes');
+Route::resource('/admin/institutes', 'InstituteController');
+Route::get('/admin/theses/ajax/institutes', 'InstituteController@institutes');
+
+//programs
+Route::resource('/admin/programs', 'ProgramController');
+Route::get('/admin/programs/ajax/programs', 'ProgramController@programs');
+
+//categories
+Route::resource('/admin/categories', 'CategoryController');
+Route::get('/admin/categories/ajax/categories', 'CategoryController@categories');
+
+
+//theses Controller
+Route::resource('/admin/theses', 'ThesisController');
+Route::get('/admin/theses/ajax/theses', 'ThesisController@theses');
+
 
 //users
-Route::resource('/users', 'UserController');
+Route::resource('/admin/users', 'UserController');
 Route::get('/users/ajax/users', 'UserController@users');
 
 //reports
-Route::get('/report', 'ReportController@index');
-Route::get('/report/list-of-books', 'ReportController@listOfBooks');
-Route::get('/report/books-by-institute', 'ReportController@booksByInstitute');
-Route::get('/report/most-viewed', 'ReportController@mostViewed');
+Route::get('/admin/report', 'ReportController@index');
+Route::get('/admin/report/list-of-books', 'ReportController@listOfBooks');
+Route::get('/admin/report/books-by-institute', 'ReportController@showBooksByInstitute');
+Route::get('/admin/report/books-by-institute/{institute}', 'ReportController@booksByInstitute');
+Route::get('/admin/report/most-viewed', 'ReportController@mostViewed');
 
 
 
 
 
-Route::get('/', 'ClientHomeController@index');
+Route::get('/client', 'ClientHomeController@index');
+
+Route::get('/client/search', 'ClientHomeController@showClientSearch');
 
 Route::get('/client/home/search/{search}', 'ClientHomeController@searchdata');
 
@@ -61,3 +66,9 @@ Route::get('/client/pdfviewer/{id}/{fileid}/', 'ClientHomeController@pdfviewer')
 Route::get('/client/viewpdf/{id}/{fileid}/', 'ClientHomeController@viewpdf');
 
 
+
+Route::get('/logout', function(){
+	\Auth::logout();
+	return redirect('/login');
+
+});

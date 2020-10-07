@@ -1,7 +1,7 @@
 @extends('layouts.adminlayout')
 
 @section('title')
-  <h3>Category</h3>
+  <h3>Categories</h3>
 @endsection
 
 @section('content')
@@ -93,7 +93,7 @@
         var table = $('#categories').DataTable({
             processing: true,
             ajax: {
-                url: '/categories/ajax/categories',
+                url: '/admin/categories/ajax/categories',
                 dataSrc: ''
             },
             columns: [

@@ -13,7 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <script type="text/javascript" src="{{asset('/js/jquery-3.3.1.js')}}"></script>
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href=" {{ asset("/css/dataTables.bootstrap4.min.css") }} ">
 
     
@@ -106,7 +106,7 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'institutes.index' ||
                       request()->route()->getName() == 'institutes.create' ||
-                      request()->route()->getName() == 'institutes.edit') active @endif" href="/institutes">
+                      request()->route()->getName() == 'institutes.edit') active @endif" href="/admin/institutes">
                         <span data-feather="file"></span>
                         Institutes {{ request()->route()->getName() == 'institutes' ? '<span class="sr-only">(current)</span>' : ''  }}
                       </a>
@@ -114,7 +114,7 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'programs.index' ||
                       request()->route()->getName() == 'programs.create' ||
-                      request()->route()->getName() == 'programs.edit') active @endif" href="/programs">
+                      request()->route()->getName() == 'programs.edit') active @endif" href="/admin/programs">
                         <span data-feather="book"></span>
                         Programs
                       </a>
@@ -123,7 +123,7 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'categories.index' ||
                       request()->route()->getName() == 'categories.create' ||
-                      request()->route()->getName() == 'categories.edit') active @endif" href="/categories">
+                      request()->route()->getName() == 'categories.edit') active @endif" href="/admin/categories">
                         <span data-feather="file"></span>
                         Categories {{ request()->route()->getName() == 'categories' ? '<span class="sr-only">(current)</span>' : ''  }}
                       </a>
@@ -132,7 +132,7 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'theses.index' ||
                       request()->route()->getName() == 'theses.create' ||
-                      request()->route()->getName() == 'theses.edit') active @endif" href="/theses">
+                      request()->route()->getName() == 'theses.edit') active @endif" href="/admin/theses">
                         <span data-feather="layers"></span>
                         Theses
                       </a>
@@ -141,7 +141,7 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'users.index' ||
                       request()->route()->getName() == 'users.create' ||
-                      request()->route()->getname() == 'users.edit') active @endif" href="/users">
+                      request()->route()->getname() == 'users.edit') active @endif" href="/admin/users">
                         <span data-feather="users"></span>
                         Users
                       </a>
@@ -151,7 +151,7 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'report.index' ||
                       request()->route()->getName() == 'report.create' ||
-                      request()->route()->getname() == 'report.edit') active @endif" href="/report">
+                      request()->route()->getname() == 'report.edit') active @endif" href="/admin/report">
                         <span data-feather="bar-chart-2"></span>
                         Reports
                       </a>
@@ -198,7 +198,7 @@
     <script type="text/javascript" src="{{asset('/js/bootbox.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/js/dataTables.bootstrap4.min.js')}}"></script>
 
-    <script src="{{ asset("js/bootstrap.bundle.min.js") }}" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <script src="{{ asset("js/bootstrap.bundle.min.js") }}"></script>
     <script src="{{ asset("js/feather.min.js") }}"></script>  
     <script src="{{ asset("js/dashboard.js") }}"></script>
   

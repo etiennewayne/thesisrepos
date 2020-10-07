@@ -2,7 +2,7 @@
 
 @section('title')
 
-  <h1>Programs</h1>
+  <h1>Institutes</h1>
 
 @endsection
 
@@ -84,7 +84,7 @@
         var table = $('#institute').DataTable({
             processing: true,
             ajax: {
-                url: '/theses/ajax/institutes',
+                url: '/admin/theses/ajax/institutes',
                 dataSrc: ''
             },
             columns: [

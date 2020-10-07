@@ -32,6 +32,9 @@ class LoginController extends Controller
      *
      * @return void
      */
+
+    //protected $redirectTo = '/home';
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -43,35 +46,16 @@ class LoginController extends Controller
     }
 
 
-     public function authenticate(Request $request)
-    {
-        //$credentials = $request->only('username', 'password');
-
-      /*  if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            //return redirect()->intended('dashboard');
-            //return redirect()->intended($this->redirectPath());
-        }*/
-
-
-        /*if (Auth::attempt(['email' => $email, 'password' => $password, 'active' => 1])) {
-            // The user is active, not suspended, and exists.
-        }*/
-    }
-
-
-    public function redirectPath(){
+    public function redirectTo(){
 
         if(strtolower(Auth::user()->position) == 'administrator'){
-            return 'home';
+            return '/admin/home';
         }
         else if(strtolower(Auth::user()->position) == 'research personnel'){
-            return 'home';
+            return '/admin/home';
         }else{
-            return 'client/home';
+            return '/client/home';
         }
-
-
 
     }
 
