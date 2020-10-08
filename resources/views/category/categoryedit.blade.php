@@ -12,7 +12,7 @@
                 <div class="card-header">Category Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/categories/{{ $category->categoryID }}">
+                <form method="POST" action="/admin/categories/{{ $category->categoryID }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group row">

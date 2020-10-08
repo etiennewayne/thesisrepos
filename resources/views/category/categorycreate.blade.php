@@ -12,7 +12,7 @@
                 <div class="card-header">Category Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/categories">
+                <form method="POST" action="/admin/categories">
                         @csrf
 
                         <div class="form-group row">

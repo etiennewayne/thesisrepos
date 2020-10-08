@@ -14,7 +14,7 @@
                 <div class="card-header">{{ __('User Information') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/users/{{ $user->id }}">
+                    <form method="POST" action="/admin/users/{{ $user->id }}">
                         @csrf
                         @method('PUT')
 

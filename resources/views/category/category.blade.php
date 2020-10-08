@@ -78,7 +78,7 @@
       </div><!--close div table-->
 
         <div class="padding-left-40">
-          <a href="/categories/create" class="btn btn-primary mybtn">Add Category</a>
+          <a href="/admin/categories/create" class="btn btn-primary mybtn">Add Category</a>
         </div>
 
 
@@ -118,7 +118,7 @@
             var data = table.row( $(this).parents('tr') ).data();
             
             var id = data['categoryID'];
-            window.location = '/categories/'+id+'/edit' ;
+            window.location = '/admin/categories/'+id+'/edit' ;
             
         });//criteria click edit
 
@@ -146,7 +146,7 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/categories/'+ id,
+                        $.post('/admin/categories/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'

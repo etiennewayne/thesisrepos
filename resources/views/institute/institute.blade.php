@@ -70,7 +70,7 @@
     </div><!--close div table-->
 
     <div class="padding-left-40">
-      <a href="/institutes/create" class="btn btn-primary mybtn">Add Institute</a>
+      <a href="/admin/institutes/create" class="btn btn-primary mybtn">Add Institute</a>
     </div>
 
 @endsection
@@ -104,7 +104,7 @@
             var data = table.row( $(this).parents('tr') ).data();
             
             var id = data['instituteID'];
-            window.location = '/institutes/'+id+'/edit' ;
+            window.location = '/admin/institutes/'+id+'/edit' ;
             
         });//criteria click edit
 
@@ -132,7 +132,7 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/institutes/'+ id,
+                        $.post('/admin/institutes/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'

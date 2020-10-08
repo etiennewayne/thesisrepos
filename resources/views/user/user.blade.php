@@ -95,7 +95,7 @@
     </div><!--close div table-->
 
     <div class="row padding-left-40">
-      <a href="/users/create" class="btn btn-primary mybtn">Add User</a>
+      <a href="/admin/users/create" class="btn btn-primary mybtn">Add User</a>
     </div>
 
 @endsection
@@ -141,7 +141,7 @@
             var data = table.row( $(this).parents('tr') ).data();
             
             var id = data['id'];
-            window.location = '/users/'+id+'/edit' ;
+            window.location = '/admin/users/'+id+'/edit' ;
             
         });//criteria click edit
 
@@ -169,7 +169,7 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/users/'+ id,
+                        $.post('/admin/users/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'

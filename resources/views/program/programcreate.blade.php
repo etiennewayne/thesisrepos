@@ -13,7 +13,7 @@
                 <div class="card-header">Program Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/programs">
+                <form method="POST" action="/admin/programs">
                         @csrf
 
                         <div class="form-group row">

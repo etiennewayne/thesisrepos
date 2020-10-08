@@ -75,7 +75,7 @@
 
 
         <div class="padding-left-40">
-          <a href="/programs/create" class="btn btn-primary mybtn">Add Program</a>
+          <a href="/admin/programs/create" class="btn btn-primary mybtn">Add Program</a>
         </div>
 
 
@@ -115,7 +115,7 @@
             var data = table.row( $(this).parents('tr') ).data();
             
             var id = data['programID'];
-            window.location = '/programs/'+id+'/edit' ;
+            window.location = '/admin/programs/'+id+'/edit' ;
             
         });//criteria click edit
 
@@ -143,7 +143,7 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/programs/'+ id,
+                        $.post('/admin/programs/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'

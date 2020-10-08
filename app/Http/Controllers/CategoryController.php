@@ -45,7 +45,7 @@ class CategoryController extends Controller
             'programID' => $request->programid
         ]);
 
-            return redirect('/categories')->with('success', 'Category successfully added.');
+            return redirect('/admin/categories')->with('success', 'Category successfully added.');
     }
 
 
@@ -66,12 +66,12 @@ class CategoryController extends Controller
         $category->programID = $request->programid;
         $category->save();
 
-        return redirect('/categories')->with('updated', 'Categories successfully updated.');
+        return redirect('/admin/categories')->with('updated', 'Categories successfully updated.');
     }
 
     public function destroy($id){
         Category::destroy($id);
-        return redirect('/categories')->with('deleted', 'Successfully deleted.');
+        return redirect('/admin/categories')->with('deleted', 'Successfully deleted.');
     }
 
 

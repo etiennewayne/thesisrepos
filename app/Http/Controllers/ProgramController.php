@@ -46,7 +46,7 @@ class ProgramController extends Controller
             'instituteID' => strtoupper($req->instituteCode)
         ]);
 
-        return redirect('/programs')->with('success', 'Program successfully saved');
+        return redirect('/admin/programs')->with('success', 'Program successfully saved');
         //return $req->instituteCode;
     }
 
@@ -58,7 +58,7 @@ class ProgramController extends Controller
         $data->programDesc = $req->programDesc;
         $data->instituteID = $req->instituteCode;
         $data->save();
-        return redirect('/programs')->with('updated','Successfully updated.');
+        return redirect('/admin/programs')->with('updated','Successfully updated.');
     }
 
     public function edit($id){
@@ -79,7 +79,8 @@ class ProgramController extends Controller
 
     public function destroy($id){
         Program::destroy($id);
-        return redirect('/programs')->with('deleted','Successfully deleted.');
+        return 'success';
+        //return redirect('/programs')->with('deleted','Successfully deleted.');
     }
 
     public function programs(){

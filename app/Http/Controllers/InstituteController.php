@@ -29,7 +29,7 @@ class InstituteController extends Controller
             'instituteDesc' => strtoupper($req->instituteDesc)
         ]);
 
-        return redirect('/institutes')->with('success', 'Institute successfully saved');
+        return redirect('/admin/institutes')->with('success', 'Institute successfully saved');
     }
 
     public function create(){
@@ -48,12 +48,13 @@ class InstituteController extends Controller
         $data->instituteDesc = strtoupper($req->instituteDesc);
         $data->save();
 
-        return redirect('/institutes')->with('updated','Successfully updated');
+        return redirect('/admin/institutes')->with('updated','Successfully updated');
     }
 
     public function destroy($id){
         Institute::destroy($id);
-        return redirect('/institutes')->with('deleted', 'Successfully deleted.');
+        return 'success';
+       // return redirect('/institutes')->with('deleted', 'Successfully deleted.');
 
     }
 

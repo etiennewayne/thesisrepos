@@ -13,7 +13,7 @@
                 <div class="card-header">Program Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/programs/{{ $program->programID }}">
+                <form method="POST" action="/admin/programs/{{ $program->programID }}">
                         @csrf
                         @method('PUT')
 

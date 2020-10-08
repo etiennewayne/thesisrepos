@@ -66,7 +66,7 @@ class UserController extends Controller
 			'position' => $req->position
 		]);
 
-		return redirect('/users')->with('success','User successfully addded.');
+		return redirect('/admin/users')->with('success','User successfully addded.');
 	}
 
 
@@ -93,12 +93,13 @@ class UserController extends Controller
 		$data->position = $req->position;
 		$data->save();
 
-        return redirect('/users')->with('updated','Successfully updated.');
+        return redirect('/admin/users')->with('updated','Successfully updated.');
 	}
 
 	public function destroy($id){
 		User::destroy($id);
-		return redirect('/users')->with('deleted', 'Successfully deleted');
+		return 'success';
+		//return redirect('/users')->with('deleted', 'Successfully deleted');
 	}
 
 
