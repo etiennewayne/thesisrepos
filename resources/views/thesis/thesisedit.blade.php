@@ -15,7 +15,7 @@
                 <div class="card-header">{{ __('Upload Thesis') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/theses/{{ $thesis->thesisfileID }}" enctype="multipart/form-data">
+                    <form method="POST" action="/admin/theses/{{ $thesis->thesisfileID }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -151,7 +151,12 @@
                             <div class="col-md-6">
                                 <select name="categoryid" class="form-control">
                                     @foreach($categories as $category)
+                                    @if($thesis->programID  == $category->categoryID)
+                                        <option selected value="{{ $category->categoryID  }}">{{ $category->category  }}</option>
+                                    @else
                                         <option value="{{ $category->categoryID  }}">{{ $category->category  }}</option>
+                                    @endif
+                                        
                                     @endforeach
                                 </select>
                             </div>

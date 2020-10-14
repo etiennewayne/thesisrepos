@@ -23,12 +23,18 @@ class ClientHomeController extends Controller
 
     public function index(){
 
-        return view('client/welcomepage');
+        $theses = DB::table('thesisfiles')
+        ->orderBy('noViews', 'desc')
+        ->take(5)
+        ->get();
+
+        return view('/client/welcomepage')
+        ->with('theses', $theses);
         
     }
 
     public function showClientSearch(){
-        return view('client/home');
+        return view('/client/home');
     }
 
 
@@ -37,7 +43,7 @@ class ClientHomeController extends Controller
         $theses = DB::table('thesisfiles')
         ->whereRaw('thesistitle like ? or tagWords like ?', ['%' . $data . '%', '%' . $data . '%'])
         ->get();
-    	return view('client/search')->with('theses', $theses);
+    	return view('/client/search')->with('theses', $theses);
     }
 
     public function viewpdf($id, $fileid){

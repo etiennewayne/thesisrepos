@@ -21,7 +21,7 @@ class ResearchPersonnel
         }
 
        
-        return redirect('/home')->with('error', 'You dont have admin access.');
-       // return $next($request);
+       //return redirect('/client/home')->with('error', 'You dont have admin access.');
+       return back()->with('access', 'You are not allowed to access this page.');
     }
 }

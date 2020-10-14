@@ -20,9 +20,11 @@ class Admin
             return $next($request);
         }
 
-        if(strtolower(Auth::user()->position) == 'research personnel'){
-            return redirect('/home')->with('error', 'You dont have admin access.');
-        }
-        return redirect('client/home')->with('error', 'You dont have admin access.');
+        // if(strtolower(Auth::user()->position) == 'research personnel'){
+        //     return redirect('/admin/home')->with('error', 'You dont have admin access.');
+        // }
+
+        //return redirect('client/home')->with('error', 'You dont have admin access.');
+        return back()->with('access', 'You are not allowed to access this page.');
     }
 }

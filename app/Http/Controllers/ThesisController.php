@@ -93,6 +93,7 @@ class ThesisController extends Controller
         $data->thesisdesc = $req->thesisdesc;
         $data->author = $req->author;
         $data->tagWords = $req->tagwords;
+        $data->categoryID = $req->categoryid;
         $data->programID = $req->programid;
         $data->save();
         return redirect('/admin/theses')->with('updated','Successfully updated.');

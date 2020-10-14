@@ -15,6 +15,8 @@
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/sticky-footer.css') }}">
+
 
     <script type="text/javascript" src="{{asset('/js/jquery-3.3.1.js')}}"></script>
 
@@ -43,7 +45,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/client">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/client/search">Search</a>
@@ -65,6 +67,17 @@
 
   @yield('content')
 
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="text-muted float-left">Theses Repository &copy; <strong>2020</strong>
+      </div>
+
+      <div class="text-muted float-right"> DEVELOPED BY <strong>JOMAR GROUP</strong></div>
+     
+    </div>
+</footer>
 
 
 

@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
+    
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -98,7 +97,7 @@
                 <div class="sidebar-sticky">
                   <ul class="nav flex-column">
                     <li class="nav-item">
-                      <a class="nav-link @if(request()->route()->getName() == 'home') active @endif" href="/home">
+                      <a class="nav-link @if(request()->route()->getName() == 'home') active @endif" href="/admin/home">
                         <span data-feather="home"></span>
                         Dashboard
                       </a>

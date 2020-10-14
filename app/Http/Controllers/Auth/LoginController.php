@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    //protected $redirectTo = redirectpath();
+    protected $redirectTo = '/client';
 
     /**
      * Create a new controller instance.
@@ -48,16 +48,13 @@ class LoginController extends Controller
 
     public function redirectTo(){
 
-        if(strtolower(Auth::user()->position) == 'administrator'){
-            return '/admin/home';
-        }
-        else if(strtolower(Auth::user()->position) == 'research personnel'){
+        if(strtolower(Auth::user()->position) == 'administrator' || strtolower(Auth::user()->position) == 'research personnel'){
             return '/admin/home';
         }else{
-            return '/client/home';
+            return '/client';
         }
 
     }
 
-    
+
 }

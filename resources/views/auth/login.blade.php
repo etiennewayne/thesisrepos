@@ -38,7 +38,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -49,7 +49,7 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif 
+                                @endif
                             </div>
                         </div>
                     </form>
@@ -101,15 +101,15 @@
 
 <body class="text-center">
     <form class="form-signin" action="{{ route('login') }}" method="post">
-           
+
         <img src="{{ asset('img/logo.png') }}" class="mb-4" alt="" width="100" height="100">
          @csrf
- 
+
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-       
+
         <label for="Username" class="sr-only">Username</label>
-            <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Your username here..." required autofocus>
+            <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" placeholder="Username" required autofocus>
 
             @error('username')
                 <span class="invalid-feedback" role="alert">
@@ -117,9 +117,9 @@
                 </span>
             @enderror
         <label for="inputPassword" class="sr-only">Password</label>
-      
-      <input type="password" id="inputPassword" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password here..." required>
-      
+
+      <input type="password" id="inputPassword" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
+
       @error('password')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -130,7 +130,7 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div> --}}
-      
+
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       {{-- <p class="mt-5 mb-3 text-muted">&copy; 2017-{{ site.time | date: "%Y" }}</p> --}}
     </form>

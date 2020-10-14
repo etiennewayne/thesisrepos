@@ -12,8 +12,25 @@
 */
 
 Route::get('/', function () {
+    if(Auth::check()){
+
+        if(AUth::user()->role == strtolower('administrator') || Auth::user()->role == strtolower('RESEARCH PERSONNEL')){
+            return redirect('/admin//home');
+        }else if(Auth::user()->role == strtolower('student')){
+            return redirect('/client');
+        }else{
+            return redirect('/client');
+        }
+    }
+
+
     return redirect('/login');
 });
+
+
+
+
+
 
 Auth::routes();
 
