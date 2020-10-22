@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.14 (64 bit)
-MySQL - 10.1.32-MariaDB : Database - thesis_repos
+MySQL - 10.4.13-MariaDB : Database - thesis_repos
 *********************************************************************
 */
 
@@ -32,6 +32,27 @@ CREATE TABLE `categories` (
 insert  into `categories`(`categoryID`,`category`,`programID`) values 
 (8,'ARDUINO',8),
 (9,'WEBPAGES and sites',8);
+
+/*Table structure for table `counterlogs` */
+
+DROP TABLE IF EXISTS `counterlogs`;
+
+CREATE TABLE `counterlogs` (
+  `counterlog_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `thesisfileID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`counterlog_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+/*Data for the table `counterlogs` */
+
+insert  into `counterlogs`(`counterlog_id`,`user_id`,`thesisfileID`) values 
+(1,1,4),
+(2,1,4),
+(3,1,4),
+(4,1,4),
+(5,1,1),
+(6,1,1);
 
 /*Table structure for table `institutes` */
 
@@ -102,13 +123,13 @@ DROP TABLE IF EXISTS `repos_file`;
 CREATE TABLE `repos_file` (
   `reposID` int(11) NOT NULL AUTO_INCREMENT,
   `noViews` int(11) DEFAULT NULL,
-  `nFile` longblob,
+  `nFile` longblob DEFAULT NULL,
   `title` varchar(45) DEFAULT '',
   `nDesc` varchar(160) DEFAULT '',
   `dateUpload` date DEFAULT NULL,
   `instituteID` int(11) DEFAULT NULL,
-  `dateLogs` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateUpdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dateLogs` timestamp NOT NULL DEFAULT current_timestamp(),
+  `dateUpdate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`reposID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -130,22 +151,21 @@ CREATE TABLE `thesisfiles` (
   `abstractfile_path` varchar(255) DEFAULT '',
   `thesisfile` varchar(255) DEFAULT '',
   `thesisfile_path` varchar(255) DEFAULT '',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `noViews` bigint(20) DEFAULT '0',
-  `tagWords` text,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `noViews` bigint(20) DEFAULT 0,
+  `tagWords` text DEFAULT NULL,
+  `programID` int(11) DEFAULT NULL,
   `categoryID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`thesisfileID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`thesisfileID`),
+  KEY `programID` (`programID`),
+  CONSTRAINT `thesisfiles_ibfk_1` FOREIGN KEY (`programID`) REFERENCES `programs` (`programID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `thesisfiles` */
 
-insert  into `thesisfiles`(`thesisfileID`,`thesistitle`,`thesisdesc`,`author`,`abstractfile`,`abstractfile_path`,`thesisfile`,`thesisfile_path`,`created_at`,`updated_at`,`noViews`,`tagWords`,`categoryID`) values 
-(1,'THESIS ARCHIVING','THESIS ARCHIVING','SANTARITA','1576381380_abstract.pdf','','1576381380_thesis.pdf','','2020-01-23 21:13:45','2020-01-23 21:13:45',0,'THESIS, REPOSITORY, DATA BANKING, DATA STORAGE',9),
-(2,'CLOP GADTC GAMES','CLOP GADTC GAMES','KEITH','1576381522_abstract.pdf','','1576381522_thesis.pdf','','2020-01-23 23:22:47','2020-01-23 23:22:47',7,'PALARO, TABULATION,',9),
-(3,'EVOTING','EVOTING','JOAN DOCOY','1576381687_abstract.pdf','','1576381687_thesis.pdf','','2020-01-23 23:23:38','2020-01-23 23:23:38',2,'SMS, VOTES, VOTING, ELECTRONIC VOTING',8),
-(4,'MOBILEBASE','A mobile application system on android.','ALAB','1576381732_abstract.pdf','','1576381732_thesis.pdf','','2020-01-23 23:24:21','2020-01-23 23:24:21',8,'MOBILE BASE, MOBILE GAMES,',9),
-(5,'REPOSITORY SYSTEM','THIS IS A REPOSITORY SYSTEM WAY PULOS LAME I AMBAK MTULAY','JUMAR','1579841947_abstract.pdf','','1579841947_thesis.pdf','','2020-01-23 22:59:37','2020-01-23 22:59:37',1,'SAMPLE',8);
+insert  into `thesisfiles`(`thesisfileID`,`thesistitle`,`thesisdesc`,`author`,`abstractfile`,`abstractfile_path`,`thesisfile`,`thesisfile_path`,`created_at`,`updated_at`,`noViews`,`tagWords`,`programID`,`categoryID`) values 
+(9,'SAMPLE','SAMPLE','SAMPLE','1603205328_abstract.pdf','','','','2020-10-22 17:26:51','2020-10-22 17:26:51',9,'TEST',8,8);
 
 /*Table structure for table `user_acc` */
 
@@ -268,21 +288,21 @@ DROP TABLE IF EXISTS `vw_users`;
 /*!50001 DROP TABLE IF EXISTS `vw_categories` */;
 /*!50001 DROP VIEW IF EXISTS `vw_categories` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_categories` AS (select `a`.`categoryID` AS `categoryID`,`a`.`category` AS `category`,`a`.`programID` AS `programID`,`b`.`programCode` AS `programCode`,`b`.`programDesc` AS `programDesc`,`b`.`instituteID` AS `instituteID`,`c`.`instituteCode` AS `instituteCode`,`c`.`instituteDesc` AS `instituteDesc` from ((`categories` `a` join `programs` `b` on((`a`.`programID` = `b`.`programID`))) join `institutes` `c` on((`b`.`instituteID` = `c`.`instituteID`)))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_categories` AS (select `a`.`categoryID` AS `categoryID`,`a`.`category` AS `category`,`a`.`programID` AS `programID`,`b`.`programCode` AS `programCode`,`b`.`programDesc` AS `programDesc`,`b`.`instituteID` AS `instituteID`,`c`.`instituteCode` AS `instituteCode`,`c`.`instituteDesc` AS `instituteDesc` from ((`categories` `a` join `programs` `b` on(`a`.`programID` = `b`.`programID`)) join `institutes` `c` on(`b`.`instituteID` = `c`.`instituteID`))) */;
 
 /*View structure for view vw_programs */
 
 /*!50001 DROP TABLE IF EXISTS `vw_programs` */;
 /*!50001 DROP VIEW IF EXISTS `vw_programs` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_programs` AS (select `a`.`programID` AS `programID`,`a`.`programCode` AS `programCode`,`a`.`programDesc` AS `programDesc`,`a`.`instituteID` AS `instituteID`,`b`.`instituteCode` AS `instituteCode`,`b`.`instituteDesc` AS `instituteDesc` from (`programs` `a` join `institutes` `b` on((`a`.`instituteID` = `b`.`instituteID`)))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_programs` AS (select `a`.`programID` AS `programID`,`a`.`programCode` AS `programCode`,`a`.`programDesc` AS `programDesc`,`a`.`instituteID` AS `instituteID`,`b`.`instituteCode` AS `instituteCode`,`b`.`instituteDesc` AS `instituteDesc` from (`programs` `a` join `institutes` `b` on(`a`.`instituteID` = `b`.`instituteID`))) */;
 
 /*View structure for view vw_users */
 
 /*!50001 DROP TABLE IF EXISTS `vw_users` */;
 /*!50001 DROP VIEW IF EXISTS `vw_users` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_users` AS (select `a`.`id` AS `id`,`a`.`username` AS `username`,`a`.`lname` AS `lname`,`a`.`fname` AS `fname`,`a`.`mname` AS `mname`,`a`.`remember_token` AS `remember_token`,`a`.`created_at` AS `created_at`,`a`.`updated_at` AS `updated_at`,`a`.`programID` AS `programID`,`a`.`position` AS `position`,`b`.`programCode` AS `programCode`,`b`.`programDesc` AS `programDesc`,`b`.`instituteID` AS `instituteID`,`c`.`instituteCode` AS `instituteCode`,`c`.`instituteDesc` AS `instituteDesc` from ((`users` `a` join `programs` `b` on((`a`.`programID` = `b`.`programID`))) join `institutes` `c` on((`b`.`instituteID` = `c`.`instituteID`)))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_users` AS (select `a`.`id` AS `id`,`a`.`username` AS `username`,`a`.`lname` AS `lname`,`a`.`fname` AS `fname`,`a`.`mname` AS `mname`,`a`.`remember_token` AS `remember_token`,`a`.`created_at` AS `created_at`,`a`.`updated_at` AS `updated_at`,`a`.`programID` AS `programID`,`a`.`position` AS `position`,`b`.`programCode` AS `programCode`,`b`.`programDesc` AS `programDesc`,`b`.`instituteID` AS `instituteID`,`c`.`instituteCode` AS `instituteCode`,`c`.`instituteDesc` AS `instituteDesc` from ((`users` `a` join `programs` `b` on(`a`.`programID` = `b`.`programID`)) join `institutes` `c` on(`b`.`instituteID` = `c`.`instituteID`))) */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

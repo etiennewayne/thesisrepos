@@ -19,33 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db8719fa-aba3-4985-9098-5182b041a808" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/thesisrepos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/thesisrepos.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientHomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientHomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ThesisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ThesisController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/ResearchPersonnel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/ResearchPersonnel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/welcomepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/welcomepage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homemain.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homemain.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/clientlayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/clientlayout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/thesis/thesis.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/thesis/thesis.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/thesis/thesisedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/thesis/thesisedit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="db8719fa-aba3-4985-9098-5182b041a808" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -156,7 +136,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="line&#9;ACTION&#9;EditorToggleShowLineNumbers" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../xampp/htdocs/login" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -188,6 +168,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574132666644</updated>
       <workItem from="1602665813158" duration="1910000" />
+      <workItem from="1602667951835" duration="86000" />
     </task>
     <servers />
   </component>
@@ -204,6 +185,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -219,6 +201,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="591" y="279" key="FileChooserDialogImpl" timestamp="1602668035642">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="591" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602668035642" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602667633101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

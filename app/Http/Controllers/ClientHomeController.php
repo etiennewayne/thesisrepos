@@ -63,7 +63,7 @@ class ClientHomeController extends Controller
         $userid = Auth::id();
 
         DB::table('counterlogs')
-        ->insert(['id'=> $userid , 'thesisfileID' => $id]);
+        ->insert(['user_id'=> $userid , 'thesisfileID' => $id]);
 
 
         $headers = ['application/pdf'];
