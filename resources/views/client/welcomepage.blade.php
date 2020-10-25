@@ -12,8 +12,8 @@
 
 
         <div class="jumbotron">
-            <h1 class="display-4">T-BOOK</h1>
-            <p class="lead">Gov. Alfonso D. Tan College Thesis Repository System.</p>
+            <h1 class="display-4">GADTC T-BOOK</h1>
+            <p class="lead">A Thesis Repository System</p>
             <hr class="my-4">
             <p>Digital copies of thesis papers of Students, Faculty and Staff of Gov. Alfonso D. Tan College.</p>
             <a class="btn btn-primary btn-lg" href="/client/search" role="button">Search Thesis Now</a>
