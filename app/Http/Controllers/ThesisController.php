@@ -46,7 +46,7 @@ class ThesisController extends Controller
             'thesistitle' => ['string', 'required', 'unique:thesisfiles'],
             'thesisdesc' => ['string', 'required'],
             'author' => ['string', 'required'],
-            'abstractfile'  => ['required','mimes:pdf','max:2048'],
+            'abstractfile'  => ['required','mimes:pdf','max:50048'],
             // 'thesisfile'  => ['required','mimes:doc,docx,pdf,txt','max:10000'],
             'tagwords' => ['string', 'required'],
            
@@ -71,6 +71,7 @@ class ThesisController extends Controller
             'author' => strtoupper($request->author),
             'abstractfile' => $abstract_name,
             //'thesisfile' => $thesis_name,
+            'datesubmitted' => $request->datesubmitted,
             'tagWords' => strtoupper($request->tagwords),
             'programID' => $request->programid,
             'categoryID' => $request->categoryid,
@@ -92,10 +93,12 @@ class ThesisController extends Controller
         $data->thesistitle = $req->thesistitle;
         $data->thesisdesc = $req->thesisdesc;
         $data->author = $req->author;
+        $data->datesubmitted = $req->datesubmitted;
         $data->tagWords = $req->tagwords;
         $data->categoryID = $req->categoryid;
         $data->programID = $req->programid;
         $data->save();
+
         return redirect('/admin/theses')->with('updated','Successfully updated.');
     }
 

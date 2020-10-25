@@ -15,7 +15,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href=" {{ asset("/css/dataTables.bootstrap4.min.css") }} ">
 
-    
+    <link rel="stylesheet" type="text/css" href=" {{ asset("/css/bootstrap-datepicker.css") }} ">
 
     <style>
       .bd-placeholder-img {

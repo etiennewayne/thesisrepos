@@ -40,7 +40,10 @@
                             <label for="thesistitle" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
 
                             <div class="col-md-6">
-                                <input id="thesistitle" type="text" class="form-control @error('thesistitle') is-invalid @enderror" name="thesistitle" value="{{ $thesis->thesistitle }}" required autocomplete="off" autofocus>
+
+                                <div class="form-group">
+                                    <textarea class="form-control @error('thesistitle') is-invalid @enderror" id="thesistitle"  name="thesistitle" rows="3" required>{{ $thesis->thesistitle }}</textarea>
+                                </div>
 
                                 @error('thesistitle')
                                     <span class="invalid-feedback" role="alert">
@@ -55,8 +58,10 @@
 
                             <div class="col-md-6">
 
-                                <input id="thesisdesc" type="text" class="form-control @error('thesisdesc') is-invalid @enderror" name="thesisdesc" value="{{ $thesis->thesisdesc }}" required autocomplete="off" autofocus>
-
+                                <div class="form-group">
+                                  
+                                    <textarea class="form-control @error('thesisdesc') is-invalid @enderror" id="thesisdesc" name="thesisdesc" rows="3" required>{{ $thesis->thesisdesc }}</textarea>
+                                </div>
                                 @error('thesisdesc')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -81,13 +86,16 @@
                         </div>
 
 
-                      {{--   <div class="form-group row">
-                            <label for="abstractfile" class="col-md-4 col-form-label text-md-right">{{ __('Abstract File') }}</label>
-                            <div class="col-md-6">
-                                <label for="abstractfile">Abstract File</label>
-                                <input type="file" class="form-control-file @error('abstractfile') is-invalid @enderror" id="abstractfile" name="abstractfile">
+                        <div class="form-group row">
+                            <label for="datesubmitted" class="col-md-4 col-form-label text-md-right">{{ __('Date Submitted') }}</label>
 
-                                 @error('abstractfile')
+                            <div class="col-md-6">
+                                <div class="datepicker date input-group p-0 shadow-sm">
+                                    <input type="text" name="datesubmitted" placeholder="Submitted Date" value="{{ $thesis->datesubmitted }}" class="form-control py-4 px-4" id="datesubmitted">
+                                    <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-clock-o"></i></span></div>
+                                </div>
+
+                                @error('tagwords')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -95,41 +103,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="thesisfile" class="col-md-4 col-form-label text-md-right">{{ __('Thesis File') }}</label>
-                            <div class="col-md-6">
-                                <label for="thesisfile">Thesis File</label>
-                                <input type="file" class="form-control-file @error('thesisfile') is-invalid @enderror" id="thesisfile" name="thesisfile">
-
-                                  @error('thesisfile')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
-
-                        
-                        {{--<div class="form-group row">--}}
-                            {{--<label for="abstractfile" class="col-md-4 col-form-label text-md-right">{{ __('Abstract File') }}</label>--}}
-                            {{--<div class="col-md-6">--}}
-                                {{--<div class="custom-file">--}}
-                                    {{--<input type="file" name="abstractfile" class="custom-file-input" id="abstractfile" aria-describedby="inputGroupFileAddon01">--}}
-                                    {{--<label class="custom-file-label" for="abstractfile">Choose file (Abstract)</label>--}}
-                                {{--</div>--}}
-                            {{--</div>	--}}
-                        {{--</div>--}}
-
-                        {{--<div class="form-group row">  --}}
-                            {{--<label for="thesisfile" class="col-md-4 col-form-label text-md-right">{{ __('Thesis File') }}</label>             --}}
-                            {{--<div class="col-md-6">--}}
-                                {{--<div class="custom-file">--}}
-                                    {{--<input type="file" class="custom-file-input" name="thesisfile" id="thesisfile" aria-describedby="inputGroupFileAddon01">--}}
-                                    {{--<label class="custom-file-label" for="thesisfile">Choose file (Thesis File)</label>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{----}}
-                        {{--</div>--}}
 
 
                         <div class="form-group row">
@@ -178,4 +151,29 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('extrascript')
+
+<script src="{{ asset('/js/bootstrap-datepicker.min.js') }}"></script>
+
+
+<script>
+    $(function () {
+
+        // INITIALIZE DATEPICKER PLUGIN
+        $('.datepicker').datepicker({
+            clearBtn: true,
+            format: "yyyy/mm/dd"
+        });
+
+
+        // FOR DEMO PURPOSE
+        $('#reservationDate').on('change', function () {
+            var pickedDate = $('input').val();
+            $('#pickedDate').html(pickedDate);
+        });
+    });
+
+</script>
 @endsection
