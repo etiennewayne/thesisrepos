@@ -10,14 +10,14 @@
 
     #the-canvas {
         border: 1px solid black;
-        direction: ltr; 
+        direction: ltr;
     }
 
-   
+
   </style>
 
   <div class="container">
-    
+
     <h1>{{ $thesis->thesistitle }}</h1>
     <h4>{{ $thesis->thesisdesc }}</h4>
 
@@ -26,10 +26,10 @@
         <div>
           <button id="prev" class="btn btn-info btn-sm mb-2">Previous</button>
           <button id="next" class="btn btn-info btn-sm mb-2">Next</button>
-         
-          
 
-        
+
+
+
             <button id="zoomin" class="btn btn-info btn-sm mb-2">Zoom In</button>
             <button id="zoomout" class="btn btn-info btn-sm mb-2">Zoom Out</button>
             <button id="zoomout" class="btn btn-success btn-sm mb-2" onclick="window.location = '/client/search'">BACK</button>
@@ -44,7 +44,7 @@
     </div>
 
   </div>
-  
+
 
 @endsection
 
@@ -54,9 +54,9 @@
 <script>
     // If absolute URL from the remote server is provided, configure the CORS
 // header on that server.
-//var url = '/{{ $pdfurl }}';
 
-var url = '/abstractfile/{{ $thesis->abstractfile }}'
+
+    var url = '/abstractfile/{{ $thesis->abstractfile }}';
 
 
 

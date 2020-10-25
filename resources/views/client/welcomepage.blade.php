@@ -2,77 +2,66 @@
 
 @section('content')
 
-        {{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
+    <style>
 
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="/img/carousel/image-01.jpg" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Frist Image</h5>
-                        <p>This is the first image</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="/img/carousel/image-02.jpg" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Frist Image</h5>
-                        <p>This is the first image</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="/img/carousel/image-03.jpg" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Frist Image</h5>
-                        <p>This is the first image</p>
-                    </div>
-                </div>
-            </div>
+        .jumbotron {
+          background-image: url("../img/banner.jpg");
+          background-size: cover;
+        }
+    </style>
 
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div> --}}
 
         <div class="jumbotron">
-            <h1 class="display-4">THESES REPOSITORY</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <h1 class="display-4">T-BOOK</h1>
+            <p class="lead">Gov. Alfonso D. Tan College Thesis Repository System.</p>
             <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p>Digital copies of thesis papers of Students, Faculty and Staff of Gov. Alfonso D. Tan College.</p>
             <a class="btn btn-primary btn-lg" href="/client/search" role="button">Search Thesis Now</a>
-          </div>
+        </div>
 
 
         <div class="container mb-2">
             <div class="rows">
-                <h3>Mostly Viewed Books</h3>
-                <div class="card-deck">
+                <div class="col-md-12">
+
+                    <h3>Mostly Viewed Books</h3>
+
                     @foreach ($theses as $thesis)
-            
-                        <div class="card" style="width: 18rem;">
+                        <div class="card float-left" style="width: 20rem; margin: 5px;">
                                 <img src="{{ asset('img/logo.png') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $thesis->thesistitle }}</h5>
-                                <p class="card-text">{{ $thesis->thesisdesc }}</p>
+                            <div class="card-body" style="height: 200px; overflow:hidden;">
+                                <h5 class="card-title text-truncate">{{ $thesis->thesistitle }}</h5>
+                                <p class="card-text text-truncate">{{ $thesis->thesisdesc }}</p>
                                 <p>No of Views : {{ $thesis->noViews }}</p>
                                 {{-- <a href="/client/pdfviewer/{{ $thesis->thesisfileID }}/{{ $thesis->abstractfile }}" class="btn btn-primary">View File</a> --}}
                             </div>
                         </div>
-                
+
                     @endforeach
-            
-                </div><!--rows-->
+
+                </div>
+
+                <div class="clearfix"></div>
+
+
 
             </div>
-          
-        </div><!--container-->
+        </div>
+
+        <br><br>
+
+
     @endsection
+
+
+
+@section('bottom-extrascript')
+
+    <script !src="">
+        $(document).ready(function(){
+
+
+        });
+    </script>
+
+@endsection

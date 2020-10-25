@@ -30,7 +30,7 @@ class ClientHomeController extends Controller
 
         return view('/client/welcomepage')
         ->with('theses', $theses);
-        
+
     }
 
     public function showClientSearch(){
@@ -59,7 +59,7 @@ class ClientHomeController extends Controller
         // ->where('thesisfileID', $id)
         // ->update(['noViews' => DB::raw('noViews+1')]);
 
-        
+
         $userid = Auth::id();
 
         DB::table('counterlogs')
@@ -67,24 +67,42 @@ class ClientHomeController extends Controller
 
 
         $headers = ['application/pdf'];
-      
+
         return response()->file('abstractfile/' . $fileid, $headers);
     }
 
-    public function pdfviewer($id, $fileid){
-        $pdfurl = 'client/viewpdf/'.$id.'/'.$fileid;
+//    public function pdfviewer($id, $fileid){
+//        $pdfurl = 'client/viewpdf/'.$id.'/'.$fileid;
+//        $thesis = \DB::table('thesisfiles')
+//        ->where('thesisfileID', $id)
+//        ->first();
+//
+//        DB::table('thesisfiles')
+//        ->where('thesisfileID', $id)
+//        ->increment('noViews', 1);
+//
+//
+//        return view('client.pdfviewer')
+//        ->with('pdfurl',  $pdfurl)
+//        ->with('thesis',  $thesis);
+//    }
+
+
+    public function pdfviewer($id){
+       //$pdfurl = 'client/viewpdf/'.$id.'/'.$fileid;
+
         $thesis = \DB::table('thesisfiles')
-        ->where('thesisfileID', $id)
-        ->first();
+            ->where('thesisfileID', $id)
+            ->first();
 
         DB::table('thesisfiles')
-        ->where('thesisfileID', $id)
-        ->increment('noViews', 1);
+            ->where('thesisfileID', $id)
+            ->increment('noViews', 1);
 
 
         return view('client.pdfviewer')
-        ->with('pdfurl',  $pdfurl)
-        ->with('thesis',  $thesis);
+            ->with('thesis',  $thesis);
     }
+
 
 }

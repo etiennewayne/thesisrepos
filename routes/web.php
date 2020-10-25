@@ -78,7 +78,10 @@ Route::get('/client/home/search/{search}', 'ClientHomeController@searchdata');
 
 Route::get('/client/autocomplete/search/{key}', 'AutoCompleteController@search');
 
-Route::get('/client/pdfviewer/{id}/{fileid}/', 'ClientHomeController@pdfviewer');
+//Route::get('/client/pdfviewer/{id}/{fileid}/', 'ClientHomeController@pdfviewer');
+
+Route::get('/client/pdfviewer/{id}/', 'ClientHomeController@pdfviewer');
+
 
 Route::get('/client/viewpdf/{id}/{fileid}/', 'ClientHomeController@viewpdf');
 

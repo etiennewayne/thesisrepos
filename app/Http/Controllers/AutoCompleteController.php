@@ -20,6 +20,7 @@ class AutoCompleteController extends Controller
 
     public function search($data){
 
+        if($data)
 
         $theses = DB::table('thesisfiles')
         ->whereRaw('thesistitle like ? or tagWords like ?', ['%' . $data . '%', '%' . $data . '%'])

@@ -44,11 +44,11 @@
         //   $("#txtsearch").autocomplete({
         //     //source: "/client/autocomplete/search"
          //   source: 'http://127.0.0.1:8000/client/autocomplete/search'
-        //   }); 
+        //   });
 
         //    console.log('loaded');
         // });
-         
+
 
         $(document).ready(function() {
           displayDefault();
@@ -61,7 +61,7 @@
             {
               'name' : 'name2'
             }];
-     
+
 
             // var xmlhttp = new XMLHttpRequest();
             // xmlhttp.onreadystatechange = function() {
@@ -73,34 +73,34 @@
             // };
             // xmlhttp.open("GET", "autocomplete/search", true);
             // xmlhttp.send();
-             
-          var sourceData = function (request, response) {
-            $.getJSON(
-                "/client/autocomplete/search/" + request.term,
-             function (data) {
-              response(data);
-             });
-           };
-          
+
+            var sourceData = function (request, response) {
+                $.getJSON(
+                    "/client/autocomplete/search/" + request.term,
+                    function (data) {
+                        response(data);
+                    });
+            };
+
 
               $("#txtsearch").focus(function(){
 
                 $( "#txtsearch" ).autocomplete({
                     source: sourceData
-                });  
+                });
                   //console.log(sourceData);
-                  
+
               });
 
 
         });
-        
+
         </script>
 
     @endsection
 
-       
-    @section('content')  
+
+    @section('content')
 
 
 
@@ -124,18 +124,22 @@
         </div>
       </div>
     </div>
-		
+
 
 	</div>  {{-- close row --}}
 
 
   <div class="row ml-2">
     <span id = 'msg' class="">Search result will appear here...</span>
-   
+
   </div>  {{-- close row --}}
 
 
+
 </div> {{-- close container --}}
+
+
+<br><br>
 
 
    <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>

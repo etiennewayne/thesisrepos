@@ -29,7 +29,7 @@
 
     @yield('head-extrascript')
 
- 
+
 
   </head>
   <body>
@@ -50,7 +50,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/client/search">Search</a>
         </li>
-       
+
       </ul>
 
       <button class="btn btn-outline-success my-2 my-sm-0" onclick="event.preventDefault();
@@ -58,26 +58,27 @@
 
       <form id="logout-form" action="{{ route('logout') }}" class="form-inline my-2 my-lg-0">
         @csrf
-        
+
       </form>
     </div>
   </nav>
-
 
 
   @yield('content')
 
 
 
+
   <footer class="footer">
+
     <div class="container">
       <div class="text-muted float-left">Theses Repository &copy; <strong>2020</strong>
       </div>
 
       <div class="text-muted float-right"> DEVELOPED BY <strong>JOMAR GROUP</strong></div>
-     
+
     </div>
-</footer>
+  </footer>
 
 
 
@@ -85,15 +86,15 @@
     <script type="text/javascript" src="{{asset('/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/js/bootbox.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/js/dataTables.bootstrap4.min.js')}}"></script>
-      
+
 
     <script src="{{ asset("js/bootstrap.bundle.min.js") }}"></script>
-    <script src="{{ asset("js/feather.min.js") }}"></script>  
+    <script src="{{ asset("js/feather.min.js") }}"></script>
     <script src="{{ asset("js/dashboard.js") }}"></script>
-  
+
 
     @yield('bottom-extrascript')
-    
+
 
   </body>
 
