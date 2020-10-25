@@ -25,13 +25,15 @@ CREATE TABLE `categories` (
   `category` varchar(30) DEFAULT NULL,
   `programID` int(11) DEFAULT NULL,
   PRIMARY KEY (`categoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `categories` */
 
 insert  into `categories`(`categoryID`,`category`,`programID`) values 
 (8,'ARDUINO',8),
-(9,'WEBPAGES and sites',8);
+(9,'WEBPAGES AND SITES',8),
+(11,'EDUCATION',14),
+(12,'COMMUNITY EXTENSION',17);
 
 /*Table structure for table `counterlogs` */
 
@@ -63,14 +65,16 @@ CREATE TABLE `institutes` (
   `instituteCode` varchar(50) DEFAULT '',
   `instituteDesc` varchar(100) DEFAULT '',
   PRIMARY KEY (`instituteID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `institutes` */
 
 insert  into `institutes`(`instituteID`,`instituteCode`,`instituteDesc`) values 
 (1,'ICS','INSTITUTE OF COMPUTER STUDIES'),
 (2,'ITE','INSTITUTE OF TEACHERS EDUCATION'),
-(3,'ICJE','INSTITUTE OF CRIMINAL JUSTICE EDUCATION');
+(3,'ICJE','INSTITUTE OF CRIMINAL JUSTICE EDUCATION'),
+(4,'IAS','INSTITUTE OF ARTS AND SCIENCES'),
+(5,'IBFS','INSTITUTE OF BUSINESS AND FINANCIAL SERVICES');
 
 /*Table structure for table `migrations` */
 
@@ -107,14 +111,22 @@ CREATE TABLE `programs` (
   `programDesc` varchar(100) DEFAULT '',
   `instituteID` int(11) DEFAULT NULL,
   PRIMARY KEY (`programID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 /*Data for the table `programs` */
 
 insert  into `programs`(`programID`,`programCode`,`programDesc`,`instituteID`) values 
 (8,'BSCS','BACHELOR OF SCIENCE IN COMPUTER SCIENCE',1),
 (9,'BS CRIM','BACHELOR OF SCIENCE IN CRIMINOLOGY',3),
-(10,'BSED-MATH','BACHELOR OF SCIENCE IN EDUCATION MAJOR IN MATHEMATICS',2);
+(10,'BSED-MATH','BACHELOR OF SECONDARY EDUCATION MAJOR IN MATHEMATICS',2),
+(11,'AB ENGLISH','BACHELOR OF ARTS MAJOR IN ENGLISH',4),
+(12,'AB POLSCI','BACHELOR OF ARTS MAJOR IN POLITICAL SCIENCE',4),
+(13,'AB COM','BACHELOR OF ARTS MAJOR IN MASS COMMUNICATION',4),
+(14,'BSED-ENGLISH','BACHELOR OF SECONDARY EDUCATION MAJOR IN ENGLISH',2),
+(15,'BSED-FILIPINO','BACHELOR OF SECONDARY EDUCATION MAJOR IN FILIPINO',2),
+(16,'BEED','BACHELOR OF ELEMENTARY EDUCATION',2),
+(17,'BSED-SOCSTUD','BACHELOR OF SECONDARY EDUCATION MAJOR IN SOCIAL STUDIES',2),
+(18,'BSED MAPEH','BACHELOR OF SECONDARY EDUCATION MAJOR IN MAPEH',2);
 
 /*Table structure for table `repos_file` */
 
@@ -157,15 +169,23 @@ CREATE TABLE `thesisfiles` (
   `tagWords` text DEFAULT NULL,
   `programID` int(11) DEFAULT NULL,
   `categoryID` int(11) DEFAULT NULL,
+  `datesubmitted` date DEFAULT NULL,
   PRIMARY KEY (`thesisfileID`),
   KEY `programID` (`programID`),
   CONSTRAINT `thesisfiles_ibfk_1` FOREIGN KEY (`programID`) REFERENCES `programs` (`programID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `thesisfiles` */
 
-insert  into `thesisfiles`(`thesisfileID`,`thesistitle`,`thesisdesc`,`author`,`abstractfile`,`abstractfile_path`,`thesisfile`,`thesisfile_path`,`created_at`,`updated_at`,`noViews`,`tagWords`,`programID`,`categoryID`) values 
-(9,'SAMPLE','SAMPLE','SAMPLE','1603205328_abstract.pdf','','','','2020-10-22 17:26:51','2020-10-22 17:26:51',9,'TEST',8,8);
+insert  into `thesisfiles`(`thesisfileID`,`thesistitle`,`thesisdesc`,`author`,`abstractfile`,`abstractfile_path`,`thesisfile`,`thesisfile_path`,`created_at`,`updated_at`,`noViews`,`tagWords`,`programID`,`categoryID`,`datesubmitted`) values 
+(1,'THESIS ARCHIVING','THESIS ARCHIVING','SANTARITA','1576381380_abstract.pdf','','1576381380_thesis.pdf','','2020-10-24 22:28:55','2020-10-24 22:28:55',15,'THESIS, REPOSITORY, DATA BANKING, DATA STORAGE',8,9,NULL),
+(2,'CLOP GADTC GAMES','CLOP GADTC GAMES','KEITH','1576381522_abstract.pdf','','1576381522_thesis.pdf','','2020-10-24 22:28:38','2020-10-24 22:28:38',10,'PALARO, TABULATION,',8,9,NULL),
+(3,'EVOTING','EVOTING','JOAN DOCOY','1576381687_abstract.pdf','','1576381687_thesis.pdf','','2020-10-07 22:38:05','2020-10-07 22:38:05',4,'SMS, VOTES, VOTING, ELECTRONIC VOTING',8,8,NULL),
+(4,'MOBILEBASE','A mobile application system on android.','ALAB','1576381732_abstract.pdf','','1576381732_thesis.pdf','','2020-10-24 22:29:06','2020-10-24 22:29:06',10,'MOBILE BASE, MOBILE GAMES,',8,9,NULL),
+(9,'COMPARATIVE EFFECTS OF EXTENSIVE READING THROUGH E-BOOK AND PRINTED BOOKS','TO DETERMINE THE COMPARATIVE EFFECTS OF EXTENSIVE READING THROUGH E-BOOK AND PRINTED BOOKS IN TERMS OF; READING FLUENCY, READING COMPREHENSION AND VOCABULARY OF THE STUDENTS','JENNIFER G. CHAVEZ JAMAICA R. FERRAREN','1603540028_abstract.pdf','','','','2020-10-24 23:20:52','2020-10-24 23:20:52',4,'EXTENSIVE READING, COMPARISON BETWEEN E-BOOK AND PRINTED BOOKS, READING FLUENCY, READING COMPREHENSION, VOCABULARY',11,11,NULL),
+(10,'REFORMATIVE PRACTICES AMONG THE PRISONERS OF SAN RAMON PRISON AND PENAL FARM ZAMBOANGA CITY','Preparing Incarcerated Person for Re-entry into Society','Dinavil P. Belocura Jerilyn T. Lasdoce','1603551691_abstract.pdf','','','','2020-10-24 23:06:06','2020-10-24 15:06:06',0,'REFORMATIVE PRACTICES, REHABILITATION, SAN RAMON PRISON AND PENAL FARM, INCARCERATED PERSON',12,12,NULL),
+(11,'BULLYING AS ENCOUNTERED BY THE LGBT STUDENTS IN GOV. ALFONSO D. TAN COLLEGE','PROMOTE A GENDER-FAIR ENVIRONMENT, BULLYING AGAINST LGBT MEMBERS','ROMANO S. MALON REZR. AGUIRRE','1603552247_abstract.pdf','','','','2020-10-24 15:10:47','2020-10-24 15:10:47',0,'BULLYING, LGBT, VERBAL HARASSMENT, ENCOUNTERS',12,12,NULL),
+(12,'COMPETITIVE ADVANTAGE AMONG BANANACUE  BUSINESS OWNERS IN TANGUB CITY','AIMED TO DETERMINE AND COMPARE WHICH OF THE FIVE (5) STALLS OF BANANA CUE IN TANGUB CITY HAS THE COMPETITIVE ADVANTAGE BASED ON PRODUCT, PRICE, PLACE, AND PROMOTION','PAULA CHRISTINE E. ASIñERO SHIELA M. RULLIN EDLYN T. BODIONGAN','1603552562_abstract.pdf','','','','2020-10-24 15:16:02','2020-10-24 15:16:02',0,'STALLS OF BANANA CUE, BUSINESS OWNERS',11,12,NULL);
 
 /*Table structure for table `user_acc` */
 
@@ -203,14 +223,15 @@ CREATE TABLE `users` (
   `programID` int(11) DEFAULT NULL,
   `position` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`username`,`lname`,`fname`,`mname`,`password`,`remember_token`,`created_at`,`updated_at`,`programID`,`position`) values 
-(1,'eamparado','Amparado','Etienne Wayne',NULL,'$2y$10$ok1JXPOU1kZs8fdnJw5QKuQh5c6NiJ8iCDBfWPmWJvh7MHzjdUO/W',NULL,'2019-10-30 04:38:34','2019-12-10 03:33:59',8,'STUDENT'),
 (7,'admin','admin','admin',NULL,'$2y$10$7Fwo0K672AjcGdROvsKrL.qyTiAvDBbKWpX4ZIwvuvTPhOJAGmQ/2','','2019-11-16 15:52:01','2019-11-17 00:15:36',8,'ADMINISTRATOR'),
-(8,'rpersonnel','alab','marvilowe',NULL,'$2y$10$RBO.wee79DuwPRbFxQ4x7OzrP4506qBydU8GodiYNA/0BaamispE6','','2020-01-23 05:00:30','2020-01-23 05:00:30',8,'RESEARCH PERSONNEL');
+(8,'rpersonnel','LARANJO','DENLORYN','MOONTOON','$2y$10$RBO.wee79DuwPRbFxQ4x7OzrP4506qBydU8GodiYNA/0BaamispE6','','2020-01-23 05:00:30','2020-10-24 14:21:23',8,'RESEARCH PERSONNEL'),
+(9,'jomar12345','calunsag','jomar','bergado','$2y$10$LaVo.YcxlUlNLxtKoL60Teky3Qry5ulMG6FHApUcJUatS6lEsI1CK','','2020-10-24 08:18:00','2020-10-24 08:18:00',8,'STUDENT'),
+(10,'BRADIKS','CABRERA','SIRFRED GEE 11','TANEZA','$2y$10$36YKBFPcgImrpDIVTYXgveBc28.Ad7Y/wxJN4H3VcnWl5c6Iw92TK','','2020-10-24 14:22:45','2020-10-24 14:22:45',8,'STUDENT');
 
 /*Table structure for table `viewcounter` */
 
