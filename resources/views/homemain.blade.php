@@ -4,7 +4,7 @@
 
 
 
-    <h1>Dashboard</h1>
+	<h1>Dashboard</h1>
 
 	@if(session('error'))
 	    <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -23,4 +23,6 @@
 		</div>
   	@endif    
 
+
+    
 @endsection

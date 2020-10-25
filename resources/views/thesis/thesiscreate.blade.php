@@ -36,7 +36,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <textarea class="form-control @error('thesistitle') is-invalid @enderror" id="thesistitle" name="thesistitle" rows="3" required></textarea>
+                                    <textarea maxlength="200" class="form-control @error('thesistitle') is-invalid @enderror" id="thesistitle" name="thesistitle" rows="3" required></textarea>
                                 </div>
 
                                 @error('thesistitle')
@@ -53,7 +53,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <textarea class="form-control @error('thesisdesc') is-invalid @enderror" id="thesisdesc" name="thesisdesc" rows="3" required></textarea>
+                                    <textarea maxlength="200" class="form-control @error('thesisdesc') is-invalid @enderror" id="thesisdesc" name="thesisdesc" rows="3" required></textarea>
                                 </div>
                                 @error('thesisdesc')
                                     <span class="invalid-feedback" role="alert">

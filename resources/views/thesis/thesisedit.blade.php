@@ -42,7 +42,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <textarea class="form-control @error('thesistitle') is-invalid @enderror" id="thesistitle"  name="thesistitle" rows="3" required>{{ $thesis->thesistitle }}</textarea>
+                                    <textarea maxlength="200" class="form-control @error('thesistitle') is-invalid @enderror" id="thesistitle"  name="thesistitle" rows="3" required>{{ $thesis->thesistitle }}</textarea>
                                 </div>
 
                                 @error('thesistitle')
@@ -60,7 +60,7 @@
 
                                 <div class="form-group">
                                   
-                                    <textarea class="form-control @error('thesisdesc') is-invalid @enderror" id="thesisdesc" name="thesisdesc" rows="3" required>{{ $thesis->thesisdesc }}</textarea>
+                                    <textarea maxlength="200" class="form-control @error('thesisdesc') is-invalid @enderror" id="thesisdesc" name="thesisdesc" rows="3" required>{{ $thesis->thesisdesc }}</textarea>
                                 </div>
                                 @error('thesisdesc')
                                     <span class="invalid-feedback" role="alert">
