@@ -117,7 +117,9 @@
                             <div class="col-md-6">
                                 <select name="position" class="form-control">
                                     <option value="ADMINISTRATOR"> ADMINISTRATOR</option>
-									<option value="STUDENT">STUDENT</option>
+                                    <option value="STUDENT">STUDENT</option>
+                                    <option value="FACULTY">FACULTY</option>
+                                    <option value="STAFF">STAFF</option>
                                     <option value="RESEARCH PERSONNEL">RESEARCH PERSONNEL</option>
                                 </select>
                             </div>                   

@@ -41,7 +41,7 @@ class ClientHomeController extends Controller
     public function searchdata($data){
 
         $theses = DB::table('thesisfiles')
-        ->whereRaw('thesistitle like ? or tagWords like ?', ['%' . $data . '%', '%' . $data . '%'])
+        ->whereRaw('thesistitle like ? or tagWords like ? or bookyear like ?', ['%' . $data . '%', '%' . $data . '%', '%' . $data . '%'])
         ->get();
     	return view('/client/search')->with('theses', $theses);
     }

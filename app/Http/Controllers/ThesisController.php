@@ -46,6 +46,7 @@ class ThesisController extends Controller
             'thesistitle' => ['string', 'required', 'unique:thesisfiles'],
             'thesisdesc' => ['string', 'required'],
             'author' => ['string', 'required'],
+            'bookyear' => ['string', 'required'],
             'abstractfile'  => ['required','mimes:pdf','max:50048'],
             // 'thesisfile'  => ['required','mimes:doc,docx,pdf,txt','max:10000'],
             'tagwords' => ['string', 'required'],
@@ -69,6 +70,7 @@ class ThesisController extends Controller
             'thesistitle' => strtoupper($request->thesistitle),
             'thesisdesc' => strtoupper($request->thesisdesc),
             'author' => strtoupper($request->author),
+            'bookyear' => $request->bookyear,
             'abstractfile' => $abstract_name,
             //'thesisfile' => $thesis_name,
             'datesubmitted' => $request->datesubmitted,
@@ -93,6 +95,7 @@ class ThesisController extends Controller
         $data->thesistitle = $req->thesistitle;
         $data->thesisdesc = $req->thesisdesc;
         $data->author = $req->author;
+        $data->bookyear = $req->bookyear;
         $data->datesubmitted = $req->datesubmitted;
         $data->tagWords = $req->tagwords;
         $data->categoryID = $req->categoryid;

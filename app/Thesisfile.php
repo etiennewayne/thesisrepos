@@ -14,7 +14,7 @@ class Thesisfile extends Model
     //protected $timestamp = false;
 
 
-    protected $fillable = ['thesistitle', 'thesisdesc', 'author', 'abstractfile',
+    protected $fillable = ['thesistitle', 'thesisdesc', 'author', 'bookyear', 'abstractfile', 'datesubmitted',
     'thesisfile',
     'tagWords', 'categoryID', 'programID'];
 

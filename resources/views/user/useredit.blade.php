@@ -103,6 +103,8 @@
                                 <select name="position" class="form-control">
                                     <option @if ($user->position == 'ADMINISTRATOR') selected="selected" @endif) value="ADMINISTRATOR"> ADMINISTRATOR</option>
                                     <option @if ($user->position == 'STUDENT') selected="selected" @endif)  value="STUDENT">STUDENT</option>
+                                    <option @if ($user->position == 'FACULTY') selected="selected" @endif)  value="STUDENT">FACULTY</option>
+                                    <option @if ($user->position == 'STAFF') selected="selected" @endif)  value="STUDENT">STAFF</option>
                                     <option @if ($user->position == 'RESEARCH PERSONNEL') selected="selected" @endif)  value="RESEARCH PERSONNEL">RESEARCH PERSONNEL</option>
                                 </select>
                             </div>                   

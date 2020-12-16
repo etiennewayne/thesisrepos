@@ -80,6 +80,22 @@
 
 
                         <div class="form-group row">
+                            <label for="bookyear" class="col-md-4 col-form-label text-md-right">{{ __('Year') }}</label>
+
+                            <div class="col-md-6">
+
+                                <input id="bookyear" maxlength="4" type="text" class="form-control @error('bookyear') is-invalid @enderror" name="bookyear" value="{{ old('bookyear') }}" required autocomplete="off" autofocus>
+
+                                @error('bookyear')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="abstractfile" class="col-md-4 col-form-label text-md-right">{{ __('Thesis File') }}</label>
                             <div class="col-md-6">
                                 <label for="abstractfile">Thesis File</label>
