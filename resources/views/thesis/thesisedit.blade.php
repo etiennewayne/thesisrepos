@@ -4,8 +4,6 @@
 	<h3>Update Thesis</h3>
 @endsection
 
-
-
 @section('content')
 <div class="container">
 
@@ -15,7 +13,7 @@
                 <div class="card-header">{{ __('Upload Thesis') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/admin/theses/{{ $thesis->thesisfileID }}" enctype="multipart/form-data">
+                    <form method="POST" action="/panel/theses/{{ $thesis->thesisfileID }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -29,7 +27,7 @@
                                         @else
                                             <option value="{{ $program->programID  }}">{{ $program->programCode  }}</option>
                                         @endif
-                                       
+
                                     @endforeach
                                 </select>
                             </div>
@@ -59,7 +57,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                  
+
                                     <textarea maxlength="200" class="form-control @error('thesisdesc') is-invalid @enderror" id="thesisdesc" name="thesisdesc" rows="3" required>{{ $thesis->thesisdesc }}</textarea>
                                 </div>
                                 @error('thesisdesc')
@@ -144,7 +142,7 @@
                                     @else
                                         <option value="{{ $category->categoryID  }}">{{ $category->category  }}</option>
                                     @endif
-                                        
+
                                     @endforeach
                                 </select>
                             </div>

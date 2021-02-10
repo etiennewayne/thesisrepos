@@ -1,6 +1,5 @@
 @extends('layouts.adminlayout')
 
-
 @section('title')
     <h3>Add Program</h3>
 @endsection
@@ -13,7 +12,7 @@
                 <div class="card-header">Program Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/admin/programs">
+                <form method="POST" action="/panel/programs">
                         @csrf
 
                         <div class="form-group row">
@@ -58,9 +57,6 @@
                                 </select>
                             </div>
                         </div>
-
-
-
 
 
                         <div class="form-group row mb-0">

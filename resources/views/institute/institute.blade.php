@@ -62,7 +62,7 @@
                     <th>Institute Code</th>
                     <th>Institute Description</th>
                     <th>Action</th>
-                     
+
                   </tr>
               </tfoot>
           </table>
@@ -70,7 +70,7 @@
     </div><!--close div table-->
 
     <div class="padding-left-40">
-      <a href="/admin/institutes/create" class="btn btn-primary mybtn">Add Institute</a>
+      <a href="/panel/institutes/create" class="btn btn-primary mybtn">Add Institute</a>
     </div>
 
 @endsection
@@ -84,7 +84,7 @@
         var table = $('#institute').DataTable({
             processing: true,
             ajax: {
-                url: '/admin/theses/ajax/institutes',
+                url: '/panel/theses/ajax/institutes',
                 dataSrc: ''
             },
             columns: [
@@ -94,7 +94,7 @@
                 {
                     defaultContent: '<div class="btn-wrapper"><button class="btn-edit" id="edit">Edit</button><button class="btn-delete" id="delete">Delete</button></div>'
                 },
-               
+
             ],
         });
 
@@ -102,10 +102,10 @@
 
         $('#institute tbody').on( 'click', '#edit', function () {
             var data = table.row( $(this).parents('tr') ).data();
-            
+
             var id = data['instituteID'];
-            window.location = '/admin/institutes/'+id+'/edit' ;
-            
+            window.location = '/panel/institutes/'+id+'/edit' ;
+
         });//criteria click edit
 
         $('#institute tbody').on( 'click', '#delete', function () {
@@ -132,28 +132,28 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/admin/institutes/'+ id,
+                        $.post('/panel/institutes/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'
                             },
-                                            
-                            function(data, status){               
+
+                            function(data, status){
                                 if(status=="success"){
                                     $('#institute').DataTable().ajax.reload();
                                    // alert('Deleted successfully');
                                 }else{
                                     alert('An error occured. ERROR : ' +status);
                                 }
-                                
+
                             }
                         );//post
                     }
-    
+
                 }//callback
             });//bootbox
         });//criteria click delete
-        
+
 
     });
 </script>

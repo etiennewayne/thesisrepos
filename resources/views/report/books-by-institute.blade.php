@@ -27,7 +27,7 @@
 			  	@foreach($institutes as $ins)
 			  		<option value="{{ $ins->instituteID }}">{{$ins->instituteCode}}</option>
 			  	@endforeach
-			    
+
 			  </select>
 			  <div class="input-group-append">
 			    <button class="btn btn-outline-secondary" onclick="search()" type="button">Search</button>
@@ -36,16 +36,16 @@
 		</div>
 
 		<div class="row mt-3">
-			<a href="/admin/report" class="btn btn-outline-primary">BACK</a>
+			<a href="/panel/report" class="btn btn-outline-primary">BACK</a>
 		</div>
 	</div>
-    
+
   	<script>
   		function search(){
   			// let instituteCode = document.getElementById('instituteCode');
   			// let insValue = instituteCode.options[instituteCode.selectedIndex].value;
   			let code = $("#institute :selected").text();
-  			window.location = '/admin/report/books-by-institute/'+ code;
+  			window.location = '/panel/report/books-by-institute/'+ code;
   		}
   	</script>
 

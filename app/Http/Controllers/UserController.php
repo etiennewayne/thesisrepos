@@ -21,7 +21,8 @@ class UserController extends Controller
 
     public function index(){
 
-    	$users = DB::table('vw_users')->get();
+    	$users = DB::table('users as a')
+            ->join('programs as b', 'a.programID', 'b.programID')->get();
 
     	//$users = User::all();
     	return view('user/user')->with('users', $users);
@@ -47,7 +48,7 @@ class UserController extends Controller
 			'username' => ['string', 'max:30', 'required', 'unique:users'],
 			'lname' => ['string', 'max:50', 'required'],
 			'fname' => ['string', 'max:50', 'required'],
-			
+
 			'password' => ['required', 'string', 'min:1', 'confirmed'],
 		]);
 
@@ -66,12 +67,17 @@ class UserController extends Controller
 			'position' => $req->position
 		]);
 
-		return redirect('/admin/users')->with('success','User successfully addded.');
+		return redirect('/panel/users')->with('success','User successfully addded.');
 	}
 
 
 	public function edit($id){
-		$user = DB::table('vw_users')->where('id', $id)->first();
+        $user = DB::table('users as a')
+            ->join('programs as b', 'a.programID', 'b.programID')
+            ->where('id', $id)
+            ->first();
+
+		//$user = DB::table('vw_users')->where('id', $id)->first();
 
 		$institutes = DB::table('institutes')->get();
     	$programs = DB::table('programs')->get();
@@ -91,9 +97,13 @@ class UserController extends Controller
 		$data->mname = $req->mname;
 		$data->programID = $req->programID;
 		$data->position = $req->position;
+
+		if($req->password != ""){
+            $data->password = Hash::make($req->password);
+        }
 		$data->save();
 
-        return redirect('/admin/users')->with('updated','Successfully updated.');
+        return redirect('/panel/users')->with('updated','Successfully updated.');
 	}
 
 	public function destroy($id){
@@ -110,5 +120,37 @@ class UserController extends Controller
         ->get();
         return $data;
     }
+
+
+    public function uploaderIndex(){
+
+	    return view('user.user-uploader');
+    }
+
+    public function storeUploadUsers(Request $req){
+
+        $arr = json_decode($req->users_json);
+
+        //echo json_decode($req->question_json);
+
+        foreach($arr as $item) { //foreach element in $arr
+            //echo $item->question; //etc
+            User::create([
+                'username' => $item->ID_No,
+                'lname' => $item->Lastname,
+                'fname' => $item->Firstname,
+                'mname' => $item->Middlename,
+                'password' => Hash::make($item->Password),
+                'programID' => $item->Program_ID,
+                'position' => $item->Position,
+            ]);
+        }
+
+        return redirect('/panel/users')
+            ->with('success', 'Users successfully addded');
+    }
+
+
+
 
 }

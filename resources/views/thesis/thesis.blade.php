@@ -58,7 +58,7 @@
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-  	@endif    
+  	@endif
 
 
         <!-- Modal -->
@@ -98,7 +98,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                 
+
                 </tbody>
                 <tfoot>
                     <tr>
@@ -118,7 +118,7 @@
 
 
         <div>
-            <a href="/admin/theses/create" class="btn btn-primary">Upload Thesis</a>
+            <a href="/panel/theses/create" class="btn btn-primary">Upload Thesis</a>
         </div>
 
 
@@ -134,7 +134,7 @@
         var table = $('#theses').DataTable({
             processing: true,
             ajax: {
-                url: '/admin/theses/ajax/theses',
+                url: '/panel/theses/ajax/theses',
                 dataSrc: ''
             },
             columns: [
@@ -147,7 +147,7 @@
                 {
                     defaultContent: '<div class="btn-wrapper"><button class="btn-edit" id="edit">Edit</button><button class="btn-delete" id="delete">Delete</button></div>'
                 },
-               
+
             ],
         });
 
@@ -155,10 +155,10 @@
 
         $('#theses tbody').on( 'click', '#edit', function () {
             var data = table.row( $(this).parents('tr') ).data();
-            
+
             var id = data['thesisfileID'];
-            window.location = '/admin/theses/'+id+'/edit' ;
-            
+            window.location = '/panel/theses/'+id+'/edit' ;
+
         });//criteria click edit
 
         $('#theses tbody').on( 'click', '#delete', function () {
@@ -185,28 +185,28 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/admin/theses/'+ id,
+                        $.post('/panel/theses/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'
                             },
-                                            
-                            function(data, status){               
+
+                            function(data, status){
                                 if(status=="success"){
                                     $('#theses').DataTable().ajax.reload();
                                     alert('Deleted successfully');
                                 }else{
                                     alert('An error occured. ERROR : ' +status);
                                 }
-                                
+
                             }
                         );//post
                     }
-    
+
                 }//callback
             });//bootbox
         });//criteria click delete
-        
+
 
     });
 </script>

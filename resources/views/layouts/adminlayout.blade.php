@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -78,7 +78,7 @@
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Administrator</a>
         <a class="nav-link" href="#">WELCOME {{ ucfirst(Auth::user()->username) }}</a>
-       
+
 
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
@@ -87,7 +87,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-            </li>  
+            </li>
         </ul>
     </nav>
 
@@ -97,7 +97,7 @@
                 <div class="sidebar-sticky">
                   <ul class="nav flex-column">
                     <li class="nav-item">
-                      <a class="nav-link @if(request()->route()->getName() == 'home') active @endif" href="/admin/home">
+                      <a class="nav-link @if(request()->route()->getName() == 'home') active @endif" href="/panel/home">
                         <span data-feather="home"></span>
                         Dashboard
                       </a>
@@ -105,7 +105,7 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'institutes.index' ||
                       request()->route()->getName() == 'institutes.create' ||
-                      request()->route()->getName() == 'institutes.edit') active @endif" href="/admin/institutes">
+                      request()->route()->getName() == 'institutes.edit') active @endif" href="/panel/institutes">
                         <span data-feather="file"></span>
                         Institutes {{ request()->route()->getName() == 'institutes' ? '<span class="sr-only">(current)</span>' : ''  }}
                       </a>
@@ -113,16 +113,16 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'programs.index' ||
                       request()->route()->getName() == 'programs.create' ||
-                      request()->route()->getName() == 'programs.edit') active @endif" href="/admin/programs">
+                      request()->route()->getName() == 'programs.edit') active @endif" href="/panel/programs">
                         <span data-feather="book"></span>
                         Programs
                       </a>
                     </li>
-          
+
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'categories.index' ||
                       request()->route()->getName() == 'categories.create' ||
-                      request()->route()->getName() == 'categories.edit') active @endif" href="/admin/categories">
+                      request()->route()->getName() == 'categories.edit') active @endif" href="/panel/categories">
                         <span data-feather="file"></span>
                         Categories {{ request()->route()->getName() == 'categories' ? '<span class="sr-only">(current)</span>' : ''  }}
                       </a>
@@ -131,16 +131,16 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'theses.index' ||
                       request()->route()->getName() == 'theses.create' ||
-                      request()->route()->getName() == 'theses.edit') active @endif" href="/admin/theses">
+                      request()->route()->getName() == 'theses.edit') active @endif" href="/panel/theses">
                         <span data-feather="layers"></span>
                         Theses
                       </a>
                     </li>
-          
+
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'users.index' ||
                       request()->route()->getName() == 'users.create' ||
-                      request()->route()->getname() == 'users.edit') active @endif" href="/admin/users">
+                      request()->route()->getname() == 'users.edit') active @endif" href="/panel/users">
                         <span data-feather="users"></span>
                         Users
                       </a>
@@ -150,7 +150,7 @@
                     <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'report.index' ||
                       request()->route()->getName() == 'report.create' ||
-                      request()->route()->getname() == 'report.edit') active @endif" href="/admin/report">
+                      request()->route()->getname() == 'report.edit') active @endif" href="/panel/report">
                         <span data-feather="bar-chart-2"></span>
                         Reports
                       </a>
@@ -163,49 +163,49 @@
                         Reports
                       </a>
                     </li> --}}
-                 
+
                   </ul>
-          
-                 
+
+
               </nav>
 
-              
+
 
               <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    
+
                     @yield('title')
 
-                    
+
                 </div>
 
                 @yield('content')
 
               </main>
 
-              
+
             </div>
 
-            
+
 
         </div>
 
-    
 
 
-    
+
+
     <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/js/bootbox.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/js/dataTables.bootstrap4.min.js')}}"></script>
 
     <script src="{{ asset("js/bootstrap.bundle.min.js") }}"></script>
-    <script src="{{ asset("js/feather.min.js") }}"></script>  
+    <script src="{{ asset("js/feather.min.js") }}"></script>
     <script src="{{ asset("js/dashboard.js") }}"></script>
-  
+
 
     @yield('extrascript')
-    
+
 
   </body>
 

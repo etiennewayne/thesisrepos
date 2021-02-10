@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Upload Thesis') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/admin/theses" enctype="multipart/form-data">
+                    <form method="POST" action="/panel/theses" enctype="multipart/form-data">
                         @csrf
 
 
@@ -103,14 +103,14 @@
 
                                  @error('abstractfile')
                                     <span class="invalid-feedback" role="alert">
-                                        
+
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
 
-               
+
                         <div class="form-group row">
                             <label for="datesubmitted" class="col-md-4 col-form-label text-md-right">{{ __('Date Submitted') }}</label>
 

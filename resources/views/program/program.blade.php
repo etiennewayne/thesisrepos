@@ -58,7 +58,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                  
+
                   </tbody>
                   <tfoot>
                       <tr>
@@ -75,7 +75,7 @@
 
 
         <div class="padding-left-40">
-          <a href="/admin/programs/create" class="btn btn-primary mybtn">Add Program</a>
+          <a href="/panel/programs/create" class="btn btn-primary mybtn">Add Program</a>
         </div>
 
 
@@ -94,7 +94,7 @@
         var table = $('#program').DataTable({
             processing: true,
             ajax: {
-                url: '/admin/programs/ajax/programs',
+                url: '/panel/programs/ajax/programs',
                 dataSrc: ''
             },
             columns: [
@@ -105,7 +105,7 @@
                 {
                     defaultContent: '<div class="btn-wrapper"><button class="btn-edit" id="edit">Edit</button><button class="btn-delete" id="delete">Delete</button></div>'
                 },
-               
+
             ],
         });
 
@@ -113,10 +113,10 @@
 
         $('#program tbody').on( 'click', '#edit', function () {
             var data = table.row( $(this).parents('tr') ).data();
-            
+
             var id = data['programID'];
-            window.location = '/admin/programs/'+id+'/edit' ;
-            
+            window.location = '/panel/programs/'+id+'/edit' ;
+
         });//criteria click edit
 
         $('#program tbody').on( 'click', '#delete', function () {
@@ -143,28 +143,28 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/admin/programs/'+ id,
+                        $.post('/panel/programs/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'
                             },
-                                            
-                            function(data, status){               
+
+                            function(data, status){
                                 if(status=="success"){
                                     $('#program').DataTable().ajax.reload();
                                    // alert('Deleted successfully');
                                 }else{
                                     alert('An error occured. ERROR : ' +status);
                                 }
-                                
+
                             }
                         );//post
                     }
-    
+
                 }//callback
             });//bootbox
         });//criteria click delete
-        
+
 
     });
 </script>

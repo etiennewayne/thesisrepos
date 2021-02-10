@@ -40,10 +40,18 @@ class ClientHomeController extends Controller
 
     public function searchdata($data){
 
-        $theses = DB::table('thesisfiles')
-        ->whereRaw('thesistitle like ? or tagWords like ? or bookyear like ?', ['%' . $data . '%', '%' . $data . '%', '%' . $data . '%'])
+        $theses = DB::table('thesisfiles as a')
+            ->join('categories as b', 'a.categoryID', 'b.categoryID')
+            ->join('programs as c', 'a.programID', 'c.programID')
+        ->whereRaw('a.thesistitle like ? or a.tagWords like ? or a.bookyear like ? or b.category like ?', ['%' . $data . '%', '%' . $data . '%', '%' . $data . '%', '%' . $data . '%'])
         ->get();
-    	return view('/client/search')->with('theses', $theses);
+
+        if($theses->isEmpty()){
+            return 'FILE NOT FOUND.';
+        }else{
+            return view('/client/search')->with('theses', $theses);
+        }
+
     }
 
     public function viewpdf($id, $fileid){

@@ -19,7 +19,7 @@ class ThesisController extends Controller
     {
 
          $this->middleware('rpersonnel');
-       
+
     }
 
     public function index(){
@@ -31,7 +31,7 @@ class ThesisController extends Controller
 
 
     public function create(){
-        
+
         $categories = Category::all();
         $programs = Program::all();
 
@@ -50,7 +50,7 @@ class ThesisController extends Controller
             'abstractfile'  => ['required','mimes:pdf','max:50048'],
             // 'thesisfile'  => ['required','mimes:doc,docx,pdf,txt','max:10000'],
             'tagwords' => ['string', 'required'],
-           
+
         ],
         [
             'abstractfile.required' => 'A file is required',
@@ -77,15 +77,15 @@ class ThesisController extends Controller
             'tagWords' => strtoupper($request->tagwords),
             'programID' => $request->programid,
             'categoryID' => $request->categoryid,
-            
+
            // 'abstractfile' => $request->abstractfile
         ]);
 
-        return redirect('/admin/theses')->with('success', 'Thesis successfully uploaded and saved.');
+        return redirect('/panel/theses')->with('success', 'Thesis successfully uploaded and saved.');
         //return $request->file('abstractfile');
     }
 
-    
+
 
 
 
@@ -102,13 +102,13 @@ class ThesisController extends Controller
         $data->programID = $req->programid;
         $data->save();
 
-        return redirect('/admin/theses')->with('updated','Successfully updated.');
+        return redirect('/panel/theses')->with('updated','Successfully updated.');
     }
 
      public function edit($id){
 
         $thesis = Thesisfile::find($id);
-     
+
         $categories = Category::all();
 
         $programs = Program::all();
@@ -118,7 +118,7 @@ class ThesisController extends Controller
         ->with('thesis', $thesis)
         ->with('categories', $categories)
         ->with('programs', $programs);
-       
+
     }
 
 

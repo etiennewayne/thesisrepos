@@ -21,13 +21,37 @@
   <component name="ChangeListManager">
     <list default="true" id="db8719fa-aba3-4985-9098-5182b041a808" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AutoCompleteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AutoCompleteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClientHomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClientHomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InstituteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InstituteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProgramController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProgramController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ThesisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ThesisController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category/category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/categorycreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category/categorycreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/categoryedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category/categoryedit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/client/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/pdfviewer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/pdfviewer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/client/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/welcomepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/welcomepage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/clientlayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/clientlayout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/institute/institute.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/institute/institute.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/institute/institutecreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/institute/institutecreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/institute/instituteedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/institute/instituteedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/program/program.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/program/program.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/program/programcreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/program/programcreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/program/programedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/program/programedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/report/books-by-institute-view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/report/books-by-institute-view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/report/books-by-institute.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/report/books-by-institute.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/report/list-of-books.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/report/list-of-books.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/report/most-viewed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/report/most-viewed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/report/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/report/report.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/thesis/thesis.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/thesis/thesis.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/thesis/thesiscreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/thesis/thesiscreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/thesis/thesisedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/thesis/thesisedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/usercreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/usercreate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/useredit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/useredit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +65,13 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -146,7 +177,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="line&#9;ACTION&#9;EditorToggleShowLineNumbers" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lequiz" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -181,6 +212,8 @@
       <workItem from="1602667951835" duration="86000" />
       <workItem from="1603595347319" duration="5415000" />
       <workItem from="1603606435483" duration="66000" />
+      <workItem from="1612962459796" duration="6555000" />
+      <workItem from="1612979896868" duration="4629000" />
     </task>
     <servers />
   </component>
@@ -213,13 +246,13 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="591" y="279" key="FileChooserDialogImpl" timestamp="1603606502806">
+    <state x="794" y="439" key="NewPhpFileDialog" timestamp="1612965049434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="591" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603606502806" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603598638740">
+    <state x="794" y="439" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612965049434" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1612982812796">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603598638740" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612982812796" />
   </component>
 </project>

@@ -12,7 +12,7 @@
                 <div class="card-header">Category Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/admin/categories">
+                <form method="POST" action="/panel/categories">
                         @csrf
 
                         <div class="form-group row">
@@ -30,8 +30,8 @@
                             </div>
                         </div>
 
-                      
-                        
+
+
 
 
                         <!-- Choices of answer -->
@@ -43,7 +43,7 @@
                                     @foreach($programs as $program)
                                          <option value="{{ $program->programID }}">{{ $program->programCode }}</option>
                                     @endforeach
-                                    
+
                                 </select>
                             </div>
                         </div>

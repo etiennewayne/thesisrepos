@@ -14,7 +14,7 @@
                 <div class="card-header">Institute Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/admin/institutes">
+                <form method="POST" action="/panel/institutes">
                         @csrf
 
                         <div class="form-group row">

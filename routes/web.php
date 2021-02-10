@@ -34,37 +34,40 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin/home', 'HomeController@index')->name('home');
+Route::get('/panel/home', 'HomeController@index')->name('home');
 
 
 //institute
-Route::resource('/admin/institutes', 'InstituteController');
-Route::get('/admin/theses/ajax/institutes', 'InstituteController@institutes');
+Route::resource('/panel/institutes', 'InstituteController');
+Route::get('/panel/theses/ajax/institutes', 'InstituteController@institutes');
 
 //programs
-Route::resource('/admin/programs', 'ProgramController');
-Route::get('/admin/programs/ajax/programs', 'ProgramController@programs');
+Route::resource('/panel/programs', 'ProgramController');
+Route::get('/panel/programs/ajax/programs', 'ProgramController@programs');
 
 //categories
-Route::resource('/admin/categories', 'CategoryController');
-Route::get('/admin/categories/ajax/categories', 'CategoryController@categories');
+Route::resource('/panel/categories', 'CategoryController');
+Route::get('/panel/categories/ajax/categories', 'CategoryController@categories');
 
 
 //theses Controller
-Route::resource('/admin/theses', 'ThesisController');
-Route::get('/admin/theses/ajax/theses', 'ThesisController@theses');
+Route::resource('/panel/theses', 'ThesisController');
+Route::get('/panel/theses/ajax/theses', 'ThesisController@theses');
 
 
 //users
-Route::resource('/admin/users', 'UserController');
+Route::resource('/panel/users', 'UserController');
 Route::get('/users/ajax/users', 'UserController@users');
+Route::get('/panel/uploader/users', 'UserController@uploaderIndex');
+Route::post('/panel/uploader/store', 'UserController@storeUploadUsers');
+
 
 //reports
-Route::get('/admin/report', 'ReportController@index');
-Route::get('/admin/report/list-of-books', 'ReportController@listOfBooks');
-Route::get('/admin/report/books-by-institute', 'ReportController@showBooksByInstitute');
-Route::get('/admin/report/books-by-institute/{institute}', 'ReportController@booksByInstitute');
-Route::get('/admin/report/most-viewed', 'ReportController@mostViewed');
+Route::get('/panel/report', 'ReportController@index');
+Route::get('/panel/report/list-of-books', 'ReportController@listOfBooks');
+Route::get('/panel/report/books-by-institute', 'ReportController@showBooksByInstitute');
+Route::get('/panel/report/books-by-institute/{institute}', 'ReportController@booksByInstitute');
+Route::get('/panel/report/most-viewed', 'ReportController@mostViewed');
 
 
 

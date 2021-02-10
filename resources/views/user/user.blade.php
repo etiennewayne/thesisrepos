@@ -51,7 +51,7 @@
               <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Username</th>
+                      <th>ID No</th>
                     <th>Lastname</th>
                     <th>Firstname</th>
                     <th>Middlename</th>
@@ -68,12 +68,12 @@
                   </tr>
               </thead>
               <tbody>
-                
+
               </tbody>
                 <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Username</th>
+                        <th>ID No</th>
                         <th>Lastname</th>
                         <th>Firstname</th>
                         <th>Middlename</th>
@@ -95,8 +95,12 @@
     </div><!--close div table-->
 
     <div class="row padding-left-40">
-      <a href="/admin/users/create" class="btn btn-primary mybtn">Add User</a>
+        <a href="/panel/users/create" class="btn btn-primary mybtn">Add User</a>
+        <a href="/panel/uploader/users" class="btn btn-primary mybtn" style="margin-left: 20px;">Upload Users</a>
+
     </div>
+
+
 
 @endsection
 
@@ -114,7 +118,7 @@
                 dataSrc: ''
             },
             columns: [
-                { data: 'id' },
+                { data: 'id', visible: false },
                 { data: 'username' },
                 { data: 'lname',},
                 { data: 'fname' },
@@ -131,7 +135,7 @@
                 {
                     defaultContent: '<div class="btn-wrapper"><button class="btn-edit" id="edit">Edit</button><button class="btn-delete" id="delete">Delete</button></div>'
                 },
-               
+
             ],
         });
 
@@ -139,10 +143,10 @@
 
         $('#users tbody').on( 'click', '#edit', function () {
             var data = table.row( $(this).parents('tr') ).data();
-            
+
             var id = data['id'];
-            window.location = '/admin/users/'+id+'/edit' ;
-            
+            window.location = '/panel/users/'+id+'/edit' ;
+
         });//criteria click edit
 
         $('#users tbody').on( 'click', '#delete', function () {
@@ -169,28 +173,28 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/admin/users/'+ id,
+                        $.post('/panel/users/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'
                             },
-                                            
-                            function(data, status){               
+
+                            function(data, status){
                                 if(status=="success"){
                                     $('#users').DataTable().ajax.reload();
                                    // alert('Deleted successfully');
                                 }else{
                                     alert('An error occured. ERROR : ' +status);
                                 }
-                                
+
                             }
                         );//post
                     }
-    
+
                 }//callback
             });//bootbox
         });//criteria click delete
-        
+
 
     });//document ready
 </script>

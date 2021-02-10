@@ -13,7 +13,7 @@
                 <div class="card-header">Program Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/admin/programs/{{ $program->programID }}">
+                <form method="POST" action="/panel/programs/{{ $program->programID }}">
                         @csrf
                         @method('PUT')
 
@@ -59,7 +59,7 @@
                                         @else
                                             <option value="{{ $ins->instituteID }}">{{ $ins->instituteCode }}</option>
                                         @endif
-                                       
+
                                    @endforeach
                                 </select>
                             </div>

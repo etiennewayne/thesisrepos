@@ -40,11 +40,11 @@
 		</div>
 
 		<div class="row">
-			<a href="/admin/report" class="btn btn-outline-primary">BACK</a>
+			<a href="/panel/report" class="btn btn-outline-primary">BACK</a>
 		</div>
 	</div>
-    
-  
+
+
 
 </body>
 

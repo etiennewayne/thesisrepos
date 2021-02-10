@@ -124,14 +124,13 @@
         </div>
       </div>
     </div>
+  </div>  {{-- close row --}}
 
 
-	</div>  {{-- close row --}}
-
-
-  <div class="row ml-2">
-    <span id = 'msg' class="">Search result will appear here...</span>
-
+  <div class="row">
+      <div class="col-md-12">
+          <div id = 'msg' class="">Search result will appear here...</div>
+      </div>
   </div>  {{-- close row --}}
 
 

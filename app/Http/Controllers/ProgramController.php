@@ -18,7 +18,8 @@ class ProgramController extends Controller
     }
 
     public function index(){
-        $programs = DB::table('vw_programs')
+        $programs = DB::table('programs as a')
+            ->join('institutes as b', 'a.instituteID', 'b.instituteID')
         ->get();
         return view('program/program')->with('programs', $programs);
     }
@@ -46,7 +47,7 @@ class ProgramController extends Controller
             'instituteID' => strtoupper($req->instituteCode)
         ]);
 
-        return redirect('/admin/programs')->with('success', 'Program successfully saved');
+        return redirect('/panel/programs')->with('success', 'Program successfully saved');
         //return $req->instituteCode;
     }
 
@@ -58,7 +59,7 @@ class ProgramController extends Controller
         $data->programDesc = $req->programDesc;
         $data->instituteID = $req->instituteCode;
         $data->save();
-        return redirect('/admin/programs')->with('updated','Successfully updated.');
+        return redirect('/panel/programs')->with('updated','Successfully updated.');
     }
 
     public function edit($id){
@@ -74,7 +75,7 @@ class ProgramController extends Controller
         return view('program/programedit')->with('program', $program)
         ->with('institutes', $institutes);
         // return $program->programCode;
-       
+
     }
 
     public function destroy($id){

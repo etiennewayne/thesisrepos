@@ -12,7 +12,7 @@
                 <div class="card-header">Category Information</div>
 
                 <div class="card-body">
-                <form method="POST" action="/admin/categories/{{ $category->categoryID }}">
+                <form method="POST" action="/panel/categories/{{ $category->categoryID }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group row">
@@ -42,9 +42,9 @@
                                         @else
                                             <option value="{{ $program->programID }}">{{ $program->programCode }}</option>
                                         @endif
-                                         
+
                                     @endforeach
-                                    
+
                                 </select>
                             </div>
                         </div>

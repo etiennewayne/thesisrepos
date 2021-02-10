@@ -58,7 +58,7 @@
                 </tr>
                 </thead>
                   <tbody>
-                  
+
                   </tbody>
                   <tfoot>
                     <tr>
@@ -78,7 +78,7 @@
       </div><!--close div table-->
 
         <div class="padding-left-40">
-          <a href="/admin/categories/create" class="btn btn-primary mybtn">Add Category</a>
+          <a href="/panel/categories/create" class="btn btn-primary mybtn">Add Category</a>
         </div>
 
 
@@ -93,7 +93,7 @@
         var table = $('#categories').DataTable({
             processing: true,
             ajax: {
-                url: '/admin/categories/ajax/categories',
+                url: '/panel/categories/ajax/categories',
                 dataSrc: ''
             },
             columns: [
@@ -108,7 +108,7 @@
                 {
                     defaultContent: '<div class="btn-wrapper"><button class="btn-edit" id="edit">Edit</button><button class="btn-delete" id="delete">Delete</button></div>'
                 },
-               
+
             ],
         });
 
@@ -116,10 +116,10 @@
 
         $('#categories tbody').on( 'click', '#edit', function () {
             var data = table.row( $(this).parents('tr') ).data();
-            
+
             var id = data['categoryID'];
-            window.location = '/admin/categories/'+id+'/edit' ;
-            
+            window.location = '/panel/categories/'+id+'/edit' ;
+
         });//criteria click edit
 
         $('#categories tbody').on( 'click', '#delete', function () {
@@ -146,28 +146,28 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/admin/categories/'+ id,
+                        $.post('/panel/categories/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'
                             },
-                                            
-                            function(data, status){               
+
+                            function(data, status){
                                 if(status=="success"){
                                     $('#categories').DataTable().ajax.reload();
                                    // alert('Deleted successfully');
                                 }else{
                                     alert('An error occured. ERROR : ' +status);
                                 }
-                                
+
                             }
                         );//post
                     }
-    
+
                 }//callback
             });//bootbox
         });//criteria click delete
-        
+
 
     });//document ready
 </script>

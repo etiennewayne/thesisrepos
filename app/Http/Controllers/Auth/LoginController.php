@@ -49,7 +49,7 @@ class LoginController extends Controller
     public function redirectTo(){
 
         if(strtolower(Auth::user()->position) == 'administrator' || strtolower(Auth::user()->position) == 'research personnel'){
-            return '/admin/home';
+            return '/panel/home';
         }else{
             return '/client';
         }
