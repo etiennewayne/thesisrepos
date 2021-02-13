@@ -11,7 +11,10 @@
     {{-- <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/"> --}}
 
     <!-- Bootstrap core CSS -->
-    <script type="text/javascript" src="{{asset('/js/jquery-3.3.1.js')}}"></script>
+    {{--<script type="text/javascript" src="{{asset('/js/jquery-3.3.1.js')}}"></script>--}}
+
+    <script type="text/javascript" src="{{asset('/js/jquery-3.5.1.js')}}"></script>
+
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href=" {{ asset("/css/dataTables.bootstrap4.min.css") }} ">
 

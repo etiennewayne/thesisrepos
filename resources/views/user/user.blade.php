@@ -64,6 +64,7 @@
                     <th>Program</th>
                     <th>programdesc</th>
                     <th>insituteid</th>
+                      <th>apwd</th>
                     <th>Action</th>
                   </tr>
               </thead>
@@ -86,6 +87,7 @@
                         <th>Program</th>
                         <th>programdesc</th>
                         <th>insituteid</th>
+                        <th>apwd</th>
                         <th>Action</th>
 
                     </tr>
@@ -97,7 +99,7 @@
     <div class="row padding-left-40">
         <a href="/panel/users/create" class="btn btn-primary mybtn">Add User</a>
         <a href="/panel/uploader/users" class="btn btn-primary mybtn" style="margin-left: 20px;">Upload Users</a>
-
+        {{--<a href="/panel/uploader/users" class="btn btn-primary mybtn" style="margin-left: 20px;">Download Users</a>--}}
     </div>
 
 
@@ -106,6 +108,14 @@
 
 @section('extrascript')
 
+<script type="text/javascript" src="{{ asset('/js/dataTables.buttons.min.js') }}"></script>
+
+<script src="/js/jszip.min.js"></script>
+
+
+<script src="/js/buttons.html5.min.js"></script>
+
+<script src="/js/buttons.print.min.js"></script>
 
 
 <script type="text/javascript">
@@ -113,6 +123,22 @@
     $(document).ready(function() {
         var table = $('#users').DataTable({
             processing: true,
+            dom: 'Bfrtip',
+
+            buttons: [
+                {
+                    extend:  'excel',
+                    text: 'Download Users',
+                    filename: 'users',
+                    messageTop: 'Users',
+                    exportOptions: {
+                        columns: [1,2,3,4,10,14]
+                    }
+                }
+
+
+            ],
+
             ajax: {
                 url: '/users/ajax/users',
                 dataSrc: ''
@@ -132,6 +158,7 @@
                 { data: 'programCode' },
                 { data: 'programDesc', visible: false },
                 { data: 'instituteID', visible: false },
+                { data: 'apwd', visible: false },
                 {
                     defaultContent: '<div class="btn-wrapper"><button class="btn-edit" id="edit">Edit</button><button class="btn-delete" id="delete">Delete</button></div>'
                 },

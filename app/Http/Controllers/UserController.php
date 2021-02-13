@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -20,6 +21,10 @@ class UserController extends Controller
 
 
     public function index(){
+
+	    if(!Auth::check()){
+	        return redirect('/login');
+        }
 
     	$users = DB::table('users as a')
             ->join('programs as b', 'a.programID', 'b.programID')->get();
@@ -48,7 +53,6 @@ class UserController extends Controller
 			'username' => ['string', 'max:30', 'required', 'unique:users'],
 			'lname' => ['string', 'max:50', 'required'],
 			'fname' => ['string', 'max:50', 'required'],
-
 			'password' => ['required', 'string', 'min:1', 'confirmed'],
 		]);
 
@@ -64,7 +68,8 @@ class UserController extends Controller
 			'mname' => $req->mname,
 			'password' => Hash::make($req['password']),
 			'programID' => $req->programID,
-			'position' => $req->position
+			'position' => $req->position,
+            'apwd' => $req['password']
 		]);
 
 		return redirect('/panel/users')->with('success','User successfully addded.');
@@ -100,6 +105,7 @@ class UserController extends Controller
 
 		if($req->password != ""){
             $data->password = Hash::make($req->password);
+            $data->apwd = $req->password;
         }
 		$data->save();
 
@@ -143,6 +149,7 @@ class UserController extends Controller
                 'password' => Hash::make($item->Password),
                 'programID' => $item->Program_ID,
                 'position' => $item->Position,
+                'apwd' => $item->Password,
             ]);
         }
 
