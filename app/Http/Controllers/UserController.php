@@ -22,12 +22,8 @@ class UserController extends Controller
 
     public function index(){
 
-	    if(!Auth::check()){
-	        return redirect('/login');
-        }
-
     	$users = DB::table('users as a')
-            ->join('programs as b', 'a.programID', 'b.programID')->get();
+            ->leftJoin('programs as b', 'a.programID', 'b.programID')->get();
 
     	//$users = User::all();
     	return view('user/user')->with('users', $users);
@@ -63,12 +59,12 @@ class UserController extends Controller
 
 		$data = User::create([
 			'username' => $req->username,
-			'lname' => $req->lname,
-			'fname' => $req->fname,
-			'mname' => $req->mname,
+			'lname' => strtoupper(trim($req->lname)),
+			'fname' => strtoupper(trim($req->fname)),
+			'mname' => strtoupper(trim($req->mname)),
 			'password' => Hash::make($req['password']),
 			'programID' => $req->programID,
-			'position' => $req->position,
+			'position' => strtoupper(trim($req->position)),
             'apwd' => $req['password']
 		]);
 
@@ -97,11 +93,11 @@ class UserController extends Controller
 	public function update(Request $req, $id){
 
 		$data = User::find($id);
-		$data->lname = $req->lname;
-		$data->fname = $req->fname;
-		$data->mname = $req->mname;
+		$data->lname = strtoupper(trim($req->lname));
+		$data->fname = strtoupper(trim($req->fname));
+		$data->mname = strtoupper(trim($req->mname));
 		$data->programID = $req->programID;
-		$data->position = $req->position;
+		$data->position = strtoupper(trim($req->position));
 
 		if($req->password != ""){
             $data->password = Hash::make($req->password);
@@ -128,34 +124,53 @@ class UserController extends Controller
     }
 
 
-    public function uploaderIndex(){
+    // public function uploaderIndex(){
 
-	    return view('user.user-uploader');
-    }
+	//     return view('user.user-uploader');
+    // }
 
-    public function storeUploadUsers(Request $req){
+    // public function storeUploadUsers(Request $req){
 
-        $arr = json_decode($req->users_json);
+    //     $arr = json_decode($req->users_json);
 
-        //echo json_decode($req->question_json);
+    //     //echo json_decode($req->question_json);
+	// 	$programid=0;
 
-        foreach($arr as $item) { //foreach element in $arr
-            //echo $item->question; //etc
-            User::create([
-                'username' => $item->ID_No,
-                'lname' => $item->Lastname,
-                'fname' => $item->Firstname,
-                'mname' => $item->Middlename,
-                'password' => Hash::make($item->Password),
-                'programID' => $item->Program_ID,
-                'position' => $item->Position,
-                'apwd' => $item->Password,
-            ]);
-        }
+    //     foreach($arr as $item) { //foreach element in $arr
+    //         //echo $item->question; //etc
 
-        return redirect('/panel/users')
-            ->with('success', 'Users successfully addded');
-    }
+	// 		//get program id of from programCode given in the excel
+	// 		$program = \DB::table('programs')
+	// 		->where('programCode', trim($item->Program_Code))
+	// 		->first();
+			
+		
+	// 	 	//filter program so that system will issue ID
+	// 		if($program){
+	// 			$programid = $program->programID;
+	// 		}
+	// 		else{
+	// 			$programid = 0;
+	// 		}
+
+
+
+	// 		\DB::table('users')->insertOrIgnore([
+    //             'username' => trim($item->ID_No),
+    //             'lname' => strtoupper(trim($item->Lastname)),
+    //             'fname' => strtoupper(trim($item->Firstname)),
+    //             'mname' => strtoupper(trim($item->Middlename)),
+    //             'password' => Hash::make($item->Password),
+    //             'programID' => $programid,
+    //             'position' => strtoupper(trim($item->Position)),
+    //             'apwd' => $item->Password,
+	// 			'acode' => $item->Academicyear_Code,
+    //         ]);
+    //     }
+
+    //     return redirect('/panel/users')
+    //         ->with('success', 'Users successfully addded');
+    // }
 
 
 

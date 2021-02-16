@@ -1,15 +1,10 @@
 @extends('layouts.adminlayout')
 
 @section('title')
-
-  <h1>Users</h1>
-
+  <h3>Academic Year</h3>
 @endsection
 
-
 @section('content')
-
-
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>SAVED!</strong> {{session('success')}}
@@ -46,61 +41,35 @@
         </div>
     @endif
 
-    <div class="row padding-left-40">
-        <table id="users" class="table table-striped table-bordered" style="width:100%">
-              <thead>
-                  <tr>
-                    <th>ID</th>
-                      <th>ID No</th>
-                    <th>Lastname</th>
-                    <th>Firstname</th>
-                    <th>Middlename</th>
-                    <th>password</th>
-                    <th>remember_token</th>
-                    <th>created_at</th>
-                    <th>updated_at</th>
-                    <th>programID</th>
-                    <th>Position</th>
-                    <th>Program</th>
-                    <th>programdesc</th>
-                    <th>insituteid</th>
-                      <th>apwd</th>
-                    <th>Action</th>
-                  </tr>
-              </thead>
-              <tbody>
 
-              </tbody>
-                <tfoot>
+      <div class="row padding-left-40">
+          	<table id="academicyears" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>AY Code</th>
+                    <th>AY Description</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                  <tbody>
+
+                  </tbody>
+                  <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>ID No</th>
-                        <th>Lastname</th>
-                        <th>Firstname</th>
-                        <th>Middlename</th>
-                        <th>password</th>
-                        <th>remember_token</th>
-                        <th>created_at</th>
-                        <th>updated_at</th>
-                        <th>programID</th>
-                        <th>Position</th>
-                        <th>Program</th>
-                        <th>programdesc</th>
-                        <th>insituteid</th>
-                        <th>apwd</th>
+                        <th>AY Code</th>
+                        <th>AY Description</th>
                         <th>Action</th>
-
                     </tr>
-                </tfoot>
-          </table>
+                  </tfoot>
+              </table>
 
-    </div><!--close div table-->
+      </div><!--close div table-->
 
-    <div class="row padding-left-40">
-        <a href="/panel/users/create" class="btn btn-primary mybtn">Add User</a>
-        {{-- <a href="/panel/uploader/users" class="btn btn-primary mybtn" style="margin-left: 20px;">Upload Users</a> --}}
-        {{--<a href="/panel/uploader/users" class="btn btn-primary mybtn" style="margin-left: 20px;">Download Users</a>--}}
-    </div>
+        <div class="padding-left-40">
+          <a href="/panel/academicyear/create" class="btn btn-primary mybtn">Add Academic Year</a>
+        </div>
 
 
 
@@ -108,57 +77,19 @@
 
 @section('extrascript')
 
-<script type="text/javascript" src="{{ asset('/js/dataTables.buttons.min.js') }}"></script>
-
-<script src="/js/jszip.min.js"></script>
-
-
-<script src="/js/buttons.html5.min.js"></script>
-
-<script src="/js/buttons.print.min.js"></script>
-
-
 <script type="text/javascript">
 
     $(document).ready(function() {
-        var table = $('#users').DataTable({
+        var table = $('#academicyears').DataTable({
             processing: true,
-            dom: 'Bfrtip',
-
-            buttons: [
-                {
-                    extend:  'excel',
-                    text: 'Download Users',
-                    filename: 'users',
-                    messageTop: 'Users',
-                    exportOptions: {
-                        columns: [1,2,3,4,10,14]
-                    }
-                }
-
-
-            ],
-
             ajax: {
-                url: '/users/ajax/users',
+                url: '/panel/academiyear/ajax/ay',
                 dataSrc: ''
             },
             columns: [
-                { data: 'id', visible: false },
-                { data: 'username' },
-                { data: 'lname',},
-                { data: 'fname' },
-                { data: 'mname', },
-                { data: 'password', visible: false},
-                { data: 'remember_token', visible: false},
-                { data: 'created_at', visible: false},
-                { data: 'updated_at', visible: false},
-                { data: 'programID', visible: false},
-                { data: 'position' },
-                { data: 'programCode' },
-                { data: 'programDesc', visible: false },
-                { data: 'instituteID', visible: false },
-                { data: 'apwd', visible: false },
+                { data: 'ayear_id' },
+                { data: 'acode' },
+                { data: 'acode_desc', visible: false},
                 {
                     defaultContent: '<div class="btn-wrapper"><button class="btn-edit" id="edit">Edit</button><button class="btn-delete" id="delete">Delete</button></div>'
                 },
@@ -167,19 +98,19 @@
 
 
 
-        $('#users tbody').on( 'click', '#edit', function () {
+        $('#academicyears tbody').on( 'click', '#edit', function () {
             var data = table.row( $(this).parents('tr') ).data();
 
-            var id = data['id'];
-            window.location = '/panel/users/'+id+'/edit' ;
+            var id = data['ayear_id'];
+            window.location = '/panel/academicyear/'+id+'/edit' ;
 
         });//criteria click edit
 
-        $('#users tbody').on( 'click', '#delete', function () {
+        $('#academicyears tbody').on( 'click', '#delete', function () {
             var data = table.row( $(this).parents('tr') ).data();
 
-            var id = data['id'];
-            var contentText = data['lname'];
+            var id = data['ayear_id'];
+            var contentText = data['acode'];
 
             var token = $("meta[name=csrf-token]").attr('content');
             var method = $("input[name=_method]").val();
@@ -199,7 +130,7 @@
                 callback: function (result) {
                     console.log('This was logged in the callback: ' + result);
                     if(result){
-                        $.post('/panel/users/'+ id,
+                        $.post('/panel/academicyear/'+ id,
                             {
                                 _token : token,
                                 _method : 'DELETE'
@@ -207,7 +138,7 @@
 
                             function(data, status){
                                 if(status=="success"){
-                                    $('#users').DataTable().ajax.reload();
+                                    $('#academicyears').DataTable().ajax.reload();
                                    // alert('Deleted successfully');
                                 }else{
                                     alert('An error occured. ERROR : ' +status);

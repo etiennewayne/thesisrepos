@@ -142,7 +142,7 @@ document.getElementById('prev').addEventListener('click', onPrevPage);
  */
 function onNextPage() {
   if (pageNum >= 4) {
-    canvas.style.filter = 'blur(5px)';
+    //canvas.style.filter = 'blur(5px)';
   }
 
   if (pageNum >= pdfDoc.numPages) {

@@ -2,7 +2,7 @@
 
 
 @section('title')
-    <h3>Add User</h3>
+    <h3>Add Student</h3>
 @endsection
 
 
@@ -11,10 +11,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('User Information') }}</div>
+                <div class="card-header">{{ __('Student Information') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/panel/users/{{ $user->id }}">
+                    <form method="POST" action="/panel/students/{{ $user->id }}">
                         @csrf
                         @method('PUT')
 
@@ -99,11 +99,7 @@
 
                             <div class="col-md-6">
                                 <select name="position" class="form-control">
-                                    <option @if ($user->position == 'ADMINISTRATOR') selected="selected" @endif) value="ADMINISTRATOR"> ADMINISTRATOR</option>
                                     <option @if ($user->position == 'STUDENT') selected="selected" @endif)  value="STUDENT">STUDENT</option>
-                                    <option @if ($user->position == 'FACULTY') selected="selected" @endif)  value="FACULTY">FACULTY</option>
-                                    <option @if ($user->position == 'STAFF') selected="selected" @endif)  value="STAFF">STAFF</option>
-                                    <option @if ($user->position == 'RESEARCH PERSONNEL') selected="selected" @endif)  value="RESEARCH PERSONNEL">RESEARCH PERSONNEL</option>
                                 </select>
                             </div>
                         </div>
@@ -122,6 +118,24 @@
                                 @enderror
                             </div>
                         </div>
+
+
+                        <div class="form-group row">
+                            <label for="acode" class="col-md-4 col-form-label text-md-right">{{ __('Academic Year') }}</label>
+                            <div class="col-md-6">
+                                <select name="acode" class="form-control">
+                                    @foreach($ay as $a)
+                                        @if($user->acode == $a->acode)
+                                            <option selected value="{{ $a->acode }}">{{ $a->acode }}</option>                                          
+                                        @else
+                                            <option value="{{ $a->acode }}">{{ $a->acode }}</option>
+                                        @endif
+                                           
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
 
 
 

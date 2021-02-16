@@ -28,13 +28,15 @@ Route::get('/', function () {
 });
 
 
-
-
-
-
 Auth::routes();
 
 Route::get('/panel/home', 'HomeController@index')->name('home');
+
+
+//ACADEMIC YEAR
+Route::resource('/panel/academicyear', 'AcademicYearController');
+Route::get('/panel/academiyear/ajax/ay', 'AcademicYearController@ajaxAY');
+
 
 
 //institute
@@ -59,7 +61,18 @@ Route::get('/panel/theses/ajax/theses', 'ThesisController@theses');
 Route::resource('/panel/users', 'UserController');
 Route::get('/users/ajax/users', 'UserController@users');
 Route::get('/panel/uploader/users', 'UserController@uploaderIndex');
-Route::post('/panel/uploader/store', 'UserController@storeUploadUsers');
+
+
+Route::post('/panel/uploader/store', 'StudentController@storeUploadUsers');
+
+
+//STUDENT
+Route::resource('/panel/students', 'StudentController');
+Route::get('/students/ajax/students', 'StudentController@students');
+Route::get('/panel/uploader/students', 'StudentController@uploaderIndex');
+Route::post('/students/ajax/delete/{aycode}', 'StudentController@studentDelete');
+//Route::post('/panel/students/store', 'StudentController@storeUploadUsers');
+
 
 
 //reports

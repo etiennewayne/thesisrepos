@@ -46,6 +46,7 @@ class LoginController extends Controller
     }
 
 
+
     public function redirectTo(){
 
         if(strtolower(Auth::user()->position) == 'administrator' || strtolower(Auth::user()->position) == 'research personnel'){

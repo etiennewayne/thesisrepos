@@ -19,7 +19,10 @@ class CategoryController extends Controller
 
     public function index(){
 
-        $categories = DB::table('vw_categories')->get();
+        $categories = DB::table('categories as a')
+        ->join('programs as b', 'a.programID', 'b.programID')
+        ->get();
+        
         return view('/category/category')->with('categories', $categories);
     }
 

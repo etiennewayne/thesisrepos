@@ -51,6 +51,13 @@
           <a class="nav-link" href="/client/search">Search</a>
         </li>
 
+        @auth
+          <li class="nav-item">
+            <a class="nav-link" href="#">{{ Auth::user()->fname[0] }}{{ Auth::user()->lname }}</a>
+          </li>
+        @endauth
+      
+
       </ul>
 
       <button class="btn btn-outline-success my-2 my-sm-0" onclick="event.preventDefault();
@@ -75,7 +82,7 @@
       <div class="text-muted float-left">Theses Repository &copy; <strong>2020</strong>
       </div>
 
-      <div class="text-muted float-right"> DEVELOPED BY <strong>JOMAR GROUP</strong></div>
+      <div class="text-muted float-right"> DEVELOPED BY <strong>TBOOK GROUP(POGI)</strong></div>
 
     </div>
   </footer>

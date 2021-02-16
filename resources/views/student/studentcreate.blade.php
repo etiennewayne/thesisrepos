@@ -11,18 +11,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('User Information') }}</div>
+                <div class="card-header">{{ __('Student Information') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/panel/users/{{ $user->id }}">
+                    <form method="POST" action="{{ route('students.store') }}">
                         @csrf
-                        @method('PUT')
 
                         <div class="form-group row">
                             <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('ID No.') }}</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" readonly="readonly" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ $user->username }}" required autocomplete="username" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                                 @error('username')
                                     <span class="invalid-feedback" role="alert">
@@ -36,7 +35,7 @@
                             <label for="lname" class="col-md-4 col-form-label text-md-right">{{ __('Lastname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ $user->lname }}" required autocomplete="lname" autofocus>
+                                <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
 
                                 @error('lname')
                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +49,7 @@
                             <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('Firstname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ $user->fname }}" required autocomplete="fname" autofocus>
+                                <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname" autofocus>
 
                                 @error('fname')
                                     <span class="invalid-feedback" role="alert">
@@ -64,7 +63,7 @@
                             <label for="mname" class="col-md-4 col-form-label text-md-right">{{ __('Middlename') }}</label>
 
                             <div class="col-md-6">
-                                <input id="mname" type="text" class="form-control @error('mname') is-invalid @enderror" name="mname" value="{{ $user->mname }}" autocomplete="mname" autofocus>
+                                <input id="mname" type="text" class="form-control @error('mname') is-invalid @enderror" name="mname" value="{{ old('mname') }}" autocomplete="mname" autofocus>
 
                                 @error('mname')
                                     <span class="invalid-feedback" role="alert">
@@ -74,7 +73,27 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
 
 
                         <div class="form-group row">
@@ -83,14 +102,12 @@
                             <div class="col-md-6">
                                 <select name="programID" class="form-control">
                                     @foreach ($programs as $program)
-										@if($user->programCode == $program->programCode)
-											<option selected="selected" value="{{ $program->programID }}">{{ $program->programCode }}</option>
-										@else
-											<option value="{{ $program->programID }}">{{ $program->programCode }}</option>
-										@endif
+                                        <option value="{{ $program->programID }}">{{ $program->programCode }}</option>
                                     @endforeach
                                 </select>
                             </div>
+
+
                         </div>
 
 
@@ -98,31 +115,27 @@
                             <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('Position') }}</label>
 
                             <div class="col-md-6">
-                                <select name="position" class="form-control">
-                                    <option @if ($user->position == 'ADMINISTRATOR') selected="selected" @endif) value="ADMINISTRATOR"> ADMINISTRATOR</option>
-                                    <option @if ($user->position == 'STUDENT') selected="selected" @endif)  value="STUDENT">STUDENT</option>
-                                    <option @if ($user->position == 'FACULTY') selected="selected" @endif)  value="FACULTY">FACULTY</option>
-                                    <option @if ($user->position == 'STAFF') selected="selected" @endif)  value="STAFF">STAFF</option>
-                                    <option @if ($user->position == 'RESEARCH PERSONNEL') selected="selected" @endif)  value="RESEARCH PERSONNEL">RESEARCH PERSONNEL</option>
+                                <select name="position" class="form-control" readonly>
+                                   
+                                    <option selected value="STUDENT">STUDENT</option>
+                            
                                 </select>
                             </div>
                         </div>
 
 
+
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
+                            <label for="acode" class="col-md-4 col-form-label text-md-right">{{ __('Academic Year') }}</label>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autofocus>
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <select name="acode" class="form-control">
+                                    @foreach($ay as $a)
+                                      
+                                        <option value="{{ $a->acode }}">{{ $a->acode }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-
 
 
                         <div class="form-group row mb-0">

@@ -114,6 +114,14 @@
                       </a>
                     </li>
                     <li class="nav-item">
+                      <a class="nav-link @if(request()->route()->getName() == 'academicyear.index' ||
+                      request()->route()->getName() == 'academicyear.create' ||
+                      request()->route()->getName() == 'academicyear.edit') active @endif" href="/panel/academicyear">
+                        <span data-feather="file"></span>
+                        Academic Year {{ request()->route()->getName() == 'academicyear' ? '<span class="sr-only">(current)</span>' : ''  }}
+                      </a>
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link @if(request()->route()->getName() == 'programs.index' ||
                       request()->route()->getName() == 'programs.create' ||
                       request()->route()->getName() == 'programs.edit') active @endif" href="/panel/programs">
@@ -146,6 +154,15 @@
                       request()->route()->getname() == 'users.edit') active @endif" href="/panel/users">
                         <span data-feather="users"></span>
                         Users
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link @if(request()->route()->getName() == 'students.index' ||
+                      request()->route()->getName() == 'students.create' ||
+                      request()->route()->getname() == 'students.edit') active @endif" href="/panel/students">
+                        <span data-feather="users"></span>
+                        Students
                       </a>
                     </li>
 
@@ -184,6 +201,7 @@
 
                 @yield('content')
 
+                <div style="margin-bottom: 50px;"></div>
               </main>
 
 
